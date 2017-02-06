@@ -1,17 +1,16 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
+/**
+ * app/routes/console.php
+ *
+ * Artisan/console based routes.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
 
-/*
-|--------------------------------------------------------------------------
-| Console Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of your Closure based console
-| commands. Each Closure is bound to a command instance allowing a
-| simple approach to interacting with each command's IO methods.
-|
-*/
+use Illuminate\Foundation\Inspiring;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());

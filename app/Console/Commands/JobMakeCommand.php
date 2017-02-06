@@ -6,18 +6,14 @@
  * Override for creating Jobs.
  *
  * @author Vince Kronlein <vince@19peaches.com>
- * @author Gary Belvin    <gary@19peaches.com>
- * @license https://github.com/19peaches/collarmatch/blob/master/LICENSE
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 
-namespace Collar\Console\Commands;
+namespace Empress\Console\Commands;
 
 use Illuminate\Foundation\Console\JobMakeCommand as BaseJobMakeCommand;
 
-/**
- * Local command for creating Jobs.
- */
 class JobMakeCommand extends BaseJobMakeCommand
 {
     /**

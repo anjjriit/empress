@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * app/Controllers/Auth/ForgotPasswordController.php
+ *
+ * Controller for initiating a password reset.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Controllers\Auth;
 
 use Empress\Base\Controller;
@@ -7,17 +17,6 @@ use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset emails and
-    | includes a trait which assists in sending these notifications from
-    | your application to your users. Feel free to explore this trait.
-    |
-    */
-
     use SendsPasswordResetEmails;
 
     /**

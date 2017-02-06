@@ -1,15 +1,12 @@
 <?php
 
 /**
- * app/routes/channels.php
+ * routes/helpers.php
  *
- * Broadcasting based routes.
+ * Empress application helpers.
  *
  * @author Vince Kronlein <vince@19peaches.com>
  * @license https://github.com/19peaches/empress/blob/master/LICENSE
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
-});

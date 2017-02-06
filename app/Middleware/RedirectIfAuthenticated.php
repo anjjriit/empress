@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * app/Middleware/RedirectIfAuthenticated.php
+ *
+ * Redirect middleware.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Middleware;
 
 use Closure;

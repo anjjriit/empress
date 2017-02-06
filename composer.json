@@ -1,7 +1,7 @@
 {
     "name": "19peaches/empress",
-    "description": "",
-    "keywords": ["framework", "laravel"],
+    "description": "Starter front end and admin scaffold based on Laravel 5.4.*, VueJS 2.0 and Materialize CSS.",
+    "keywords": ["framework", "laravel", "empress"],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -17,6 +17,9 @@
     "autoload": {
         "classmap": [
             "database"
+        ],
+        "files": [
+            "routes/helpers.php"
         ],
         "psr-4": {
             "Empress\\": "app/"

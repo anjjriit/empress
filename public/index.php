@@ -1,6 +1,15 @@
 <?php
 
 /**
+ * public/index.php
+ *
+ * Application entry point.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ *
+ * 
  * Laravel - A PHP Framework For Web Artisans
  *
  * @package  Laravel

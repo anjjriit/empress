@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * app/Base/Controller.php
+ *
+ * Local Controller class for controllers to extend.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Base;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;

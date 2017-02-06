@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * app/Models/User.php
+ *
+ * Model for interacting with the users table.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Models;
 
 use Illuminate\Notifications\Notifiable;
