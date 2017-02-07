@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "axios": "^0.15.2",
-    "laravel-mix": "^0.5.*",
+    "laravel-mix": "JeffreyWay/laravel-mix",
     "lodash": "^4.16.2",
     "material-design-icons": "^3.0.1",
     "materialize-css": "^0.98.0",

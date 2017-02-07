@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name') }}</title>
 
-        <link href="{{ asset(mix('css/app.css')) }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet" type="text/css">
         
         <script>
             window.Laravel = {!! json_encode([
@@ -57,7 +57,7 @@
                                 Empress is a complete admin and front end solution for rapidly scaffolding new member based applications.
                             </p>
                             <p class="grey-text text-lighten-4">
-                                It utilizes the latest versions of Laravel, Vue and Materialize CSS, all with master SASS and Node implementations built with Laravel Mix and Webpack. Give it a try ... it's kinda dope.
+                                It utilizes the latest versions of Laravel, Vue and Materialize CSS, all with master SASS and Node implementations, built with Laravel Mix and Webpack. Give it a try ... it's kinda dope.
                             </p>
                         </div>
                         <div class="col l4 offset-l2 s12">
@@ -91,6 +91,6 @@
             
         </div>
 
-        <script src="{{ asset(mix('js/app.js')) }}"></script>
+        <script src="{{ asset(mix('/js/app.js')) }}"></script>
     </body>
 </html>
