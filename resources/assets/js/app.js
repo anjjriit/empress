@@ -14,7 +14,14 @@ require('./bootstrap');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('welcome', require('./components/Welcome.vue'));
 
 const app = new Vue({
     el: '#app'
 });
+
+(function($){
+  $(function(){
+    $('.button-collapse').sideNav();
+  });
+})(jQuery);

@@ -14,7 +14,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Name
+    | Application Name & Company
     |--------------------------------------------------------------------------
     |
     | This value is the name of your application. This value is used when the
@@ -22,7 +22,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Empress',
+    'name'    => 'Empress',
+    'company' => 'Periapt, LLC.',
 
     /*
     |--------------------------------------------------------------------------
