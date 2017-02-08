@@ -1,4 +1,5 @@
 /node_modules
+/resourse/assets/sass/fonts
 /public/storage
 /public/hot
 /public/css
