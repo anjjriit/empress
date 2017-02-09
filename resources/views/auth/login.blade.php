@@ -13,9 +13,9 @@
                                 {{ csrf_field() }}
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <i class="material-icons prefix">mail_outline</i>
-                                    <input id="email" type="text" name="email" value="{{ old('email') }}" class="validate">
-                                    <label for="email">E-mail Address</label>
+                                    <i class="material-icons prefix">face</i>
+                                    <input id="login" type="text" name="login" value="{{ old('login') }}" class="validate">
+                                    <label for="login">Username or E-mail</label>
                                 </div>
 
                                 <div class="input-field col s12">
@@ -32,8 +32,8 @@
                         </div>
 
                         <div class="card-action center">
-                            <button type="submit" class="waves-effect waves-light btn-large">Login</button>
-                            <p class="center" style="padding-left: 20px;">
+                            <button type="submit" class="light-blue lighten-2 waves-effect waves-light btn-large">Login</button>
+                            <p class="center forgot">
                                 <a href="{{ route('auth.forgot.show') }}">Forgot Your Password?</a>
                             </p>
                         </div>

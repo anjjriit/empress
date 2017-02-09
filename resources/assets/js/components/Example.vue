@@ -1,13 +1,10 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col m8 offset-m2 s12">
-                <div class="card card-panel">
-                    <div class="card-title">Example Component</div>
-
-                    <div class="card-content">
-                        I'm an example component!
-                    </div>
+    <div class="row">
+        <div class="col s12 m8 offset-m2">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Example Component</span>
+                    <p>I'm an example component!</p>
                 </div>
             </div>
         </div>

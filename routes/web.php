@@ -62,13 +62,18 @@ Route::group(['namespace' => 'Auth'], function() {
 	]);
 });
 
+
 Route::get('/', [
-	'as'   => 'front.home.index',
+	'as'   => 'front.index',
 	'uses' => 'HomeController@index'
 ]);
 
-Route::get('home', [
-	'as'         => 'front.home.show',
-	'uses'       => 'HomeController@show',
-	'middleware' => 'auth'
-]);
+Route::group(['namespace' => 'Front'], function() {
+
+	Route::group(['middleware' => 'auth'], function() {
+		Route::get('dashboard', [
+			'as'   => 'front.dashboard.index',
+			'uses' => 'DashboardController@index',
+		]);
+	});
+});

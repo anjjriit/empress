@@ -25,5 +25,7 @@
     </div>
 
     <script src="{{ asset(mix('/js/app.js')) }}"></script>
+
+    @include('flash::message')
 </body>
 </html>
