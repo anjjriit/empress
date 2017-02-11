@@ -14,31 +14,31 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">face</i>
-                                    <input id="username" type="text" name="username" value="{{ old('username') }}" class="validate">
+                                    <input id="username" type="text" name="username" value="{{ old('username') }}" class="validate" required>
                                     <label for="username">Username</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">perm_identity</i>
-                                    <input id="name" type="text" name="name" value="{{ old('name') }}" class="validate">
+                                    <input id="name" type="text" name="name" value="{{ old('name') }}" class="validate" required>
                                     <label for="name">Name</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">mail_outline</i>
-                                    <input id="email" type="text" name="email" value="{{ old('email') }}" class="validate">
+                                    <input id="email" type="text" name="email" value="{{ old('email') }}" class="validate" required>
                                     <label for="email">E-mail Address</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">fingerprint</i>
-                                    <input id="password" type="password" name="password" class="validate">
+                                    <input id="password" type="password" name="password" class="validate" required>
                                     <label for="password">Password</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">fingerprint</i>
-                                    <input id="password-confirm" type="password" name="password_confirmation" class="validate">
+                                    <input id="password-confirm" type="password" name="password_confirmation" class="validate" required>
                                     <label for="password-confirm">Confirm Password</label>
                                 </div>
                             </div>       

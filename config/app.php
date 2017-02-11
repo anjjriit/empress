@@ -180,7 +180,7 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Reliance\Flash\FlashServiceProvider::class,
-        Peaches\Generator\GeneratorServiceProvider::class,
+        Reliance\Generator\GeneratorServiceProvider::class,
 
         /*
          * Application Service Providers...

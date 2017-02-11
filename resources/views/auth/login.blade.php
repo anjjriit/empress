@@ -14,13 +14,13 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">face</i>
-                                    <input id="login" type="text" name="login" value="{{ old('login') }}" class="validate">
+                                    <input id="login" type="text" name="login" value="{{ old('login') }}" class="validate" required>
                                     <label for="login">Username or E-mail</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">fingerprint</i>
-                                    <input id="password" type="password" name="password" class="validate">
+                                    <input id="password" type="password" name="password" class="validate" required>
                                     <label for="password">Password</label>
                                 </div>
                                     
