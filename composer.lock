@@ -4,58 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f05e3b51c006d523112515c9b2b88d75",
-    "content-hash": "0e09fff4c7390046448ae24763831e7a",
+    "hash": "fa56b127b12bd708a3f1dbe31e52fef0",
+    "content-hash": "0b06a8b4991d15bd5c780658439f47cb",
     "packages": [
-        {
-            "name": "19peaches/empress-generator",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/19peaches/empress-generator.git",
-                "reference": "54f85f81ade553e4cf303a915f9b5df8bdff8966"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/19peaches/empress-generator/zipball/54f85f81ade553e4cf303a915f9b5df8bdff8966",
-                "reference": "54f85f81ade553e4cf303a915f9b5df8bdff8966",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^2.5",
-                "illuminate/support": "5.4.*",
-                "php": ">=5.6.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Peaches\\Generator\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bluecode"
-                },
-                {
-                    "name": "Vince Kronlein"
-                }
-            ],
-            "description": "Empress CRUD Generator/Model/Migrate from just one command with including Controller, Service, Repository, Model, Migrations, routes.php update.",
-            "keywords": [
-                "crud",
-                "empress",
-                "generator",
-                "laravel",
-                "migration",
-                "model",
-                "scaffold"
-            ],
-            "time": "2017-02-08 03:43:06"
-        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -919,49 +870,6 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
-        },
-        {
-            "name": "laracasts/flash",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laracasts/flash.git",
-                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
-                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Laracasts\\Flash": "src/"
-                },
-                "files": [
-                    "src/Laracasts/Flash/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@laracasts.com"
-                }
-            ],
-            "description": "Easy flash notifications",
-            "time": "2016-07-11 20:46:02"
         },
         {
             "name": "laravel/cashier",
@@ -2042,6 +1950,53 @@
             "time": "2016-11-22 19:21:44"
         },
         {
+            "name": "reliance/flash",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/19peaches/reliance-flash.git",
+                "reference": "8958ac90681e64ef66c7aab561b0481d9ba27515"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/19peaches/reliance-flash/zipball/8958ac90681e64ef66c7aab561b0481d9ba27515",
+                "reference": "8958ac90681e64ef66c7aab561b0481d9ba27515",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.4",
+                "php": ">=5.6.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Reliance\\Flash": "src/"
+                },
+                "files": [
+                    "src/Reliance/Flash/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                },
+                {
+                    "name": "Vince Kronlein",
+                    "email": "vince@19peaches.com"
+                }
+            ],
+            "description": "Easy flash notifications for Empress applications.",
+            "time": "2017-02-11 00:11:44"
+        },
+        {
             "name": "stripe/stripe-php",
             "version": "v4.4.0",
             "source": {
@@ -2977,6 +2932,55 @@
     ],
     "packages-dev": [
         {
+            "name": "19peaches/empress-generator",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/19peaches/empress-generator.git",
+                "reference": "54f85f81ade553e4cf303a915f9b5df8bdff8966"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/19peaches/empress-generator/zipball/54f85f81ade553e4cf303a915f9b5df8bdff8966",
+                "reference": "54f85f81ade553e4cf303a915f9b5df8bdff8966",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "illuminate/support": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Peaches\\Generator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bluecode"
+                },
+                {
+                    "name": "Vince Kronlein"
+                }
+            ],
+            "description": "Empress CRUD Generator/Model/Migrate from just one command with including Controller, Service, Repository, Model, Migrations, routes.php update.",
+            "keywords": [
+                "crud",
+                "empress",
+                "generator",
+                "laravel",
+                "migration",
+                "model",
+                "scaffold"
+            ],
+            "time": "2017-02-08 03:43:06"
+        },
+        {
             "name": "doctrine/instantiator",
             "version": "1.0.5",
             "source": {
@@ -3122,6 +3126,49 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "reference": "03eec812fd6ae948664ff51b4320785f6d15ee5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2016-07-11 20:46:02"
         },
         {
             "name": "mockery/mockery",

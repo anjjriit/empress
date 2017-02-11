@@ -9,11 +9,11 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 
-require('materialize-css');
+window.Materialize = require('materialize-css');
 
-require('./plugins/bootstrap-notify.js');
+//require('materialize-notify');
 
-//window.Notifier = require('./plugins/notifier.js');
+window.Notifier = require('./plugins/notifier.js');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces

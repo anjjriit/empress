@@ -1,55 +1,63 @@
-(function (factory) {
-	if (typeof define === 'function' && define.amd) {
-		// AMD. Register as an anonymous module.
-		define(['jquery'], factory);
-	} else if (typeof exports === 'object') {
-		// Node/CommonJS
-		factory(require('jquery'));
-	} else {
-		// Browser globals
-		factory(jQuery);
-	}
-}(function ($) {
-	window.Notifier = {
-		init: function(message, level, icon = 'notifications', location = 'right', title = '') {
-			this.message  = message;
-			this.level    = level;
-			this.icon     = icon;
-			this.location = location;
-			this.title    = title;
+require('materialize-notify');
 
-			this.fire();
-		},
-		template: function() {
-			return '<div class="col s11 m5 l4 center alert alert-{0} alert-with-icon" data-notify="container">' +
-	            '<i class="material-icons" data-notify="icon"></i>' +
-	            '<button type="button" aria-hidden="true" data-notify="dismiss" class="close waves-effect waves-light waves-circle">' +
-	                '<i class="material-icons">close</i>' +
-	            '</button>' +
-	            '<span data-notify="title">{1}</span>' +
-	            '<span data-notify="message"><p>{2}</p></span>'+
-	        '</div>';
-		},
-		fire: function() {
-			return $.notify({
-	            icon: Notifier.icon,
-	            title: Notifier.title,
-	            message: Notifier.message,
-	        },{
-	            type: Notifier.level,
-	            timer: 5000,
-	            placement: {
-	                from: "top",
-	                align: Notifier.location
-	            },
-	            animate: {
-	                enter: 'animated bounceInDown',
-	                exit: 'animated bounceOutUp'
-	            },
-	            offset: 65,
-	            allow_dismiss: true,
-	            template: Notifier.template()
-	        });
+Notifier = {
+	init: function(message, title, level = null, icon = null, location = 'right') {
+		this.message = message;
+		
+		if (level !== null) {
+			this.level = level;
+			this.title = title;
+		} else {
+			this.level = title;
+			this.title = null;
 		}
-	};
-}));
+		
+		if (icon) {
+			this.icon = icon;
+		} else {
+			this.icon();
+		}
+
+		this.location = location;
+
+		this.run();
+	},
+	icon: function() {
+        switch (this.level) {
+            case 'success':
+                this.icon = 'done_all';
+                break;
+            case 'danger':
+                this.icon = 'report_problem';
+                break;
+            case 'info':
+                this.icon = 'info_outline';
+                break;
+            case 'warning':
+                this.icon = 'error_outline';
+                break;
+            case 'default':
+            case 'inverse':
+            case 'primary':
+            case 'rose':
+                this.icon = 'notifications';
+                break;
+        }
+	},
+	template: function() {
+		// you can add your own template here if you need to.
+	},
+	run: function() {
+		$.notify({
+            icon: Notifier.icon,
+            title: Notifier.title,
+            message: Notifier.message,
+        },{
+            type: Notifier.level,
+            timer: 500000,
+            //template: Notifier.template(); // uncomment if you've added a template above.
+        });
+	}
+};
+
+module.exports = Notifier;

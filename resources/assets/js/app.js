@@ -28,5 +28,7 @@ const app = new Vue({
     	belowOrigin: true
     });
 
+    window.FlashModal = $('#flash-modal').modal();
+
   });
 })(jQuery);

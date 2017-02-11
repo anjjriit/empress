@@ -1,4 +1,4 @@
-<div id="flash-modal" class="modal">
+<div id="flash-modal" class="modal col sm12 m6 l4">
     <div class="modal-content">
         <h4>{{ $title }}</h4>
         {!! $body !!}

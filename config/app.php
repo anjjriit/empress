@@ -179,7 +179,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,
+        Reliance\Flash\FlashServiceProvider::class,
         Peaches\Generator\GeneratorServiceProvider::class,
 
         /*
@@ -220,7 +220,7 @@ return [
         'Eloquent'     => Illuminate\Database\Eloquent\Model::class,
         'Event'        => Illuminate\Support\Facades\Event::class,
         'File'         => Illuminate\Support\Facades\File::class,
-        'Flash'        => Laracasts\Flash\Flash::class,
+        'Flash'        => Reliance\Flash\Flash::class,
         'Form'         => Collective\Html\FormFacade::class,
         'Gate'         => Illuminate\Support\Facades\Gate::class,
         'Hash'         => Illuminate\Support\Facades\Hash::class,
