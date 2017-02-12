@@ -15,14 +15,14 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">mail_outline</i>
-                                    <input id="email" type="email" name="email" value="{{ $email or old('email') }}" class="validate" required>
+                                    <input id="email" type="email" name="email" class="validate" required>
                                     <label for="email">E-mail Address</label>
                                 </div>
 
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">fingerprint</i>
                                     <input id="password" type="password" name="password" class="validate" required>
-                                    <label for="email">E-mail Address</label>
+                                    <label for="password">Password</label>
                                 </div>
 
                                 <div class="input-field col s12">

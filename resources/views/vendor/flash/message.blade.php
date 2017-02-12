@@ -27,7 +27,7 @@
             |
             */
 
-            Notifier.init(
+            Notifier.run(
                 "{!! session('flash_notification.message') !!}", 
                 "{{ session('flash_notification.title') }}", 
                 "{{ session('flash_notification.level') }}"

@@ -1,10 +1,30 @@
-require('materialize-notify');
+/**
+ * resources/assets/js/plugins/Notifier.js
+ *
+ * Notifier for access the Materialize-Notifier package.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
 
-Notifier = {
-	init: function(message, title, level = null, icon = null, location = 'right') {
+import notify from 'materialize-notify';
+
+class Notifier {
+	/**
+	 * Build up the notification.
+	 * 
+	 * @param  {string} message
+	 * @param  {string} title
+	 * @param  {string} level
+	 * @param  {string} icon
+	 * @param  {string} location
+	 * @return Notify
+	 */
+	run(message, title, level = null, icon = null, location = 'right') {
 		this.message = message;
-		
-		if (level !== null) {
+		console.log(level);
+		if (level) {
 			this.level = level;
 			this.title = title;
 		} else {
@@ -19,11 +39,17 @@ Notifier = {
 		}
 
 		this.location = location;
+		console.log(this);
+		this.render();
+	}
 
-		this.run();
-	},
-	icon: function() {
-        switch (this.level) {
+	/**
+	 * Set the icon if one isn't passed in.
+	 * 
+	 * @return {string}
+	 */
+	icon() {
+		switch (this.level) {
             case 'success':
                 this.icon = 'done_all';
                 break;
@@ -43,21 +69,33 @@ Notifier = {
                 this.icon = 'notifications';
                 break;
         }
-	},
-	template: function() {
+	}
+
+	/**
+	 * Add your own template if you need.
+	 * 
+	 * @return {string}
+	 */
+	template() {
 		// you can add your own template here if you need to.
-	},
-	run: function() {
+	}
+
+	/**
+	 * Render the Notification.
+	 * 
+	 * @return Notify
+	 */
+	render() {
 		$.notify({
-            icon: Notifier.icon,
-            title: Notifier.title,
-            message: Notifier.message,
+            icon: this.icon,
+            title: this.title,
+            message: this.message,
         },{
-            type: Notifier.level,
-            timer: 500000,
-            //template: Notifier.template(); // uncomment if you've added a template above.
+            type: this.level,
+            timer: 5000,
+            //template: this.template(); // uncomment if you've added a template above.
         });
 	}
-};
+}
 
-module.exports = Notifier;
+export default new Notifier;

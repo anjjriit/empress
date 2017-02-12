@@ -13,6 +13,7 @@
 namespace Empress\Models;
 
 use Empress\Models\Traits\Activatable;
+use Empress\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -75,5 +76,26 @@ class User extends Authenticatable
         'password'         => 'required|string',
         'activation_token' => 'string'
     ];
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
     
 }

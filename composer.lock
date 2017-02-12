@@ -1951,16 +1951,16 @@
         },
         {
             "name": "reliance/flash",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/19peaches/reliance-flash.git",
-                "reference": "8958ac90681e64ef66c7aab561b0481d9ba27515"
+                "reference": "21f103f65fda406d72cb08dc9182a10672e0f937"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/19peaches/reliance-flash/zipball/8958ac90681e64ef66c7aab561b0481d9ba27515",
-                "reference": "8958ac90681e64ef66c7aab561b0481d9ba27515",
+                "url": "https://api.github.com/repos/19peaches/reliance-flash/zipball/21f103f65fda406d72cb08dc9182a10672e0f937",
+                "reference": "21f103f65fda406d72cb08dc9182a10672e0f937",
                 "shasum": ""
             },
             "require": {
@@ -1994,7 +1994,7 @@
                 }
             ],
             "description": "Easy flash notifications for Empress applications.",
-            "time": "2017-02-11 00:11:44"
+            "time": "2017-02-11 22:25:05"
         },
         {
             "name": "stripe/stripe-php",

@@ -1,24 +1,51 @@
 
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
+ * resources/assets/js/app.js
+ *
+ * Main app javascript entry point.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
  */
+
+/*
+|--------------------------------------------------------------------------
+| Require Dependencies
+|--------------------------------------------------------------------------
+|
+| First we will load all of this project's JavaScript dependencies which
+| includes Vue and other libraries. It is a great starting point when
+| building robust, powerful web applications using Vue and Laravel.
+|
+*/
 
 require('./bootstrap');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+/*
+|--------------------------------------------------------------------------
+| Build Vue and Load Components
+|--------------------------------------------------------------------------
+|
+| Next, we will create a fresh Vue application instance and attach it to
+| the page. Then, you may begin adding components to this application
+| or customize the JavaScript scaffolding to fit your unique needs.
+|
+*/
 
 Vue.component('example', require('./components/Example.vue'));
 Vue.component('welcome', require('./components/Welcome.vue'));
+Vue.component('forgot', require('./components/Forgot.vue'));
 
 const app = new Vue({
     el: '#app'
 });
+
+/*
+|--------------------------------------------------------------------------
+| Document ready, boot up our Materialize methods.
+|--------------------------------------------------------------------------
+*/
 
 (function($){
   $(function(){
@@ -28,7 +55,21 @@ const app = new Vue({
     	belowOrigin: true
     });
 
+    $('select').material_select();
+
+    // for HTML5 "required" attribute
+    $("select[required]").css({
+		display: "inline",
+		height: 0,
+		padding: 0,
+		width: 0
+    });
+
+    // Specific modal for our alerts.
     window.FlashModal = $('#flash-modal').modal();
+
+    // Other modals.
+    window.Modal = $('.modal').modal();
 
   });
 })(jQuery);

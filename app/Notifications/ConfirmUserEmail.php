@@ -54,20 +54,7 @@ class ConfirmUserEmail extends Notification implements ShouldQueue
         $name = $notifiable->name;
 
         return (new MailMessage)
-                            ->subject('Please Confirm Your Email Address')
-                            ->markdown('mail.confirm', ['url' => $url, 'name' => $name]);
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+            ->subject('Please Confirm Your Email Address')
+            ->markdown('mail.confirm', ['url' => $url, 'name' => $name]);
     }
 }
