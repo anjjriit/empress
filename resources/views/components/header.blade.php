@@ -1,7 +1,7 @@
             <header>
                 <nav class="orange darken-2">
                     <div class="container nav-wrapper">
-                        <a href="{{ route('front.index') }}" class="brand-logo waves-effect waves-orange">{{ config('app.name') }}</a>
+                        <a href="{{ route('front.index') }}" class="brand-logo nav-logo waves-effect waves-orange">{{ config('app.name') }}</a>
                         <a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only">
                             <i class="material-icons white-text">menu</i>
                         </a>

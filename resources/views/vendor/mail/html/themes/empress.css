@@ -99,7 +99,7 @@ img {
 .header {
     padding: 25px 0;
     text-align: center;
-    background-color: #f57c00;
+    /*background-color: #f57c00;*/
 }
 
 .header a {
@@ -107,7 +107,6 @@ img {
     font-size: 32px;
     font-weight: bold;
     text-decoration: none;
-    /*text-shadow: 0 1px 0 white;*/
 }
 
 /* Body */

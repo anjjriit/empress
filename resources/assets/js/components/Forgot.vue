@@ -45,12 +45,8 @@ export default {
     methods: {
         onSubmit() {
             this.form.post('/password/email')
-                .then(function() {
-                	Notifier.run('Please check your email for a link to reset your password.', 'Email Sent', 'success');
-
-              		setTimeout(function(){
-              			location = '/login';
-              		}, 5000);
+                .then(function(response) {
+                	Notifier.run(response.message, response.level);
                 });
         }
     }

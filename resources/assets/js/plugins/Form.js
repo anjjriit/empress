@@ -47,6 +47,12 @@ class Form {
     reset() {
         for (let field in this.originalData) {
             this[field] = '';
+
+            let item  = $('input[name="' + field + '"]');
+            let label = $('label[for="' + field + '"]');
+
+            item.removeClass('valid');
+            label.removeClass('active');
         }
 
         this.errors.clear();

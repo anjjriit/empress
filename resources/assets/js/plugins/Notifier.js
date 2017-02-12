@@ -23,7 +23,7 @@ class Notifier {
 	 */
 	run(message, title, level = null, icon = null, location = 'right') {
 		this.message = message;
-		console.log(level);
+		
 		if (level) {
 			this.level = level;
 			this.title = title;
@@ -35,11 +35,11 @@ class Notifier {
 		if (icon) {
 			this.icon = icon;
 		} else {
-			this.icon();
+			this.setIcon();
 		}
 
 		this.location = location;
-		console.log(this);
+		
 		this.render();
 	}
 
@@ -48,7 +48,7 @@ class Notifier {
 	 * 
 	 * @return {string}
 	 */
-	icon() {
+	setIcon() {
 		switch (this.level) {
             case 'success':
                 this.icon = 'done_all';
