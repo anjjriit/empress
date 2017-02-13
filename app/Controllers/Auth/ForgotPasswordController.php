@@ -31,24 +31,29 @@ class ForgotPasswordController extends Controller
     }
 
     /**
-     * Send a reset link to the given user.
+     * Get the response for a successful password reset link.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  string  $response
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function sendResetLinkEmail(Request $request)
+    protected function sendResetLinkResponse($response)
     {
-        $this->validate($request, ['email' => 'required|email']);
+        flash(trans($response), 'success');
 
-        $response = $this->broker()->sendResetLink(
-            $request->only('email')
-        );
+        return redirect()->back();
+    }
 
-        $level = $response == 'passwords.sent' ? 'success' : 'danger';
+    /**
+     * Get the response for a failed password reset link.
+     *
+     * @param  \Illuminate\Http\Request
+     * @param  string  $response
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendResetLinkFailedResponse(Request $request, $response)
+    {
+        flash(trans($response), 'danger');
 
-        return [
-            'message' => trans($response),
-            'level'   => $level
-        ];
+        return redirect()->back();
     }
 }

@@ -12,6 +12,8 @@ import Vue from 'vue';
 import Axios from 'axios';
 //import Echo from "laravel-echo";
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Assign all of our packages to the window object.
@@ -30,6 +32,9 @@ window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
 };
+
+require('jquery-validation');
+require('./plugins/ValidatorDefaults');
 
 /*
 |--------------------------------------------------------------------------

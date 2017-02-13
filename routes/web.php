@@ -11,52 +11,52 @@
  */
 
 Route::group(['namespace' => 'Auth'], function() {
-	Route::get('login', [
+	Route::get('/login', [
 		'as'   => 'auth.login.show',
 		'uses' => 'LoginController@showLoginForm'
 	]);
 
-	Route::get('password/reset', [
+	Route::get('/password/reset', [
 		'as'   => 'auth.forgot.show',
 		'uses' => 'ForgotPasswordController@showLinkRequestForm'
 	]);
 
-	Route::get('password/reset/{token}', [
+	Route::get('/password/reset/{token}', [
 		'as'   => 'auth.reset.show',
 		'uses' => 'ResetPasswordController@showResetForm'
 	]);
 
-	Route::get('register', [
+	Route::get('/register', [
 		'as'   => 'auth.register.show',
 		'uses' => 'RegisterController@showRegistrationForm'
 	]);
 
-	Route::get('register/activate/{activationToken}', [
+	Route::get('/register/activate/{activationToken}', [
         'as'   => 'auth.register.activate',
         'uses' => 'RegisterController@activate'
     ]);
 
-	Route::get('logout', [
+	Route::get('/logout', [
 		'as'   => 'auth.logout',
 		'uses' => 'LoginController@logout'
 	]);
 
-	Route::post('login', [
+	Route::post('/login', [
 		'as'   => 'auth.login.store',
 		'uses' => 'LoginController@login'
 	]);
 
-	Route::post('password/email', [
+	Route::post('/password/email', [
 		'as'   => 'auth.forgot.store',
 		'uses' => 'ForgotPasswordController@sendResetLinkEmail'
 	]);
 
-	Route::post('password/reset', [
+	Route::post('/password/reset', [
 		'as'   => 'auth.reset.store',
 		'uses' => 'ResetPasswordController@reset'
 	]);
 
-	Route::post('register', [
+	Route::post('/register', [
 		'as'   => 'auth.register.store',
 		'uses' => 'RegisterController@register'
 	]);
@@ -71,7 +71,7 @@ Route::get('/', [
 Route::group(['namespace' => 'Front'], function() {
 
 	Route::group(['middleware' => 'auth'], function() {
-		Route::get('dashboard', [
+		Route::get('/dashboard', [
 			'as'   => 'front.dashboard.index',
 			'uses' => 'DashboardController@index',
 		]);

@@ -15,5 +15,8 @@
     "materialize-css": "^0.98.0",
     "materialize-notify": "^1.0.0",
     "vue": "^2.0.1"
+  },
+  "dependencies": {
+    "jquery-validation": "^1.16.0"
   }
 }

@@ -15,6 +15,7 @@ body, #app {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    
 }
 main {
     flex: 1 0 auto;
@@ -31,6 +32,23 @@ main {
     font-size: inherit;
     vertical-align: -0.2rem;
 }
+.homepage {
+
+    .top-right {
+        position: absolute;
+        right: 10px;
+        top: 18px;
+    }
+
+    .links > a {
+        color: #f57c00;
+        padding: 0 25px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
 a.button-collapse.top-nav {
     position: absolute;
     text-align: center;
@@ -66,9 +84,10 @@ a.button-collapse.top-nav i {
 span {
     &.error {
         margin-left: 3rem;
-        width: 92%;
         width: calc(100% - 3rem);
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        display: inline-block;
     }
 }
 .nav-logo {
@@ -80,7 +99,47 @@ span {
     text-align: left;
     text-indent: -10000px !important;
 }
-
+label {
+    width: 100%;
+}
+.input-field label {
+    font-size: 0.8rem;
+    -webkit-transform: translateY(-140%);
+    -moz-transform: translateY(-140%);
+    -ms-transform: translateY(-140%);
+    -o-transform: translateY(-140%);
+    transform: translateY(-140%);
+}
+input:not([type]) + label:after, 
+input[type=text] + label:after, 
+input[type=password] + label:after, 
+input[type=email] + label:after, 
+input[type=url] + label:after, 
+input[type=time] + label:after, 
+input[type=date] + label:after, 
+input[type=datetime] + label:after, 
+input[type=datetime-local] + label:after, 
+input[type=tel] + label:after, 
+input[type=number] + label:after, 
+input[type=search] + label:after, 
+textarea.materialize-textarea + label:after {
+    top: 64px;
+}
+input:not([type]), 
+input[type=text], 
+input[type=password], 
+input[type=email], 
+input[type=url], 
+input[type=time], 
+input[type=date], 
+input[type=datetime], 
+input[type=datetime-local], 
+input[type=tel], 
+input[type=number], 
+input[type=search], 
+textarea.materialize-textarea {
+    margin: 0 0 25px 0; 
+}
 @media only screen and (max-width: 600px) {
     a.button-collapse.top-nav {
         left: 5%;

@@ -33,9 +33,11 @@ require('./bootstrap');
 |
 */
 
-Vue.component('example', require('./components/Example.vue'));
-Vue.component('welcome', require('./components/Welcome.vue'));
-Vue.component('forgot', require('./components/Forgot.vue'));
+import Example from './components/Example';
+import Welcome from './components/Welcome';
+
+Vue.component('example', Example);
+Vue.component('welcome', Welcome);
 
 const app = new Vue({
     el: '#app'
@@ -70,6 +72,8 @@ const app = new Vue({
 
     // Other modals.
     window.Modal = $('.modal').modal();
+
+    Materialize.updateTextFields();
 
   });
 })(jQuery);
