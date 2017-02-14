@@ -17,7 +17,7 @@ window.axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
 };
 
-window.Notifier = require('./plugins/notifier');
+window.Notifier = require('./plugins/Notifier');
 
 require('./plugins/ValidatorDefaults');
 
