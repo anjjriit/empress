@@ -28,6 +28,10 @@ class DashboardController extends Controller
     {
     	$this->user = $request->user();
 
+        bcs('One', 'front.dashboard.index');
+        bcs('Two', 'front.dashboard.index');
+        bcs('Last');
+
     	return view('front.dashboard');
     }
 }

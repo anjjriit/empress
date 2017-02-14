@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.member.app')
 @section('title', 'Dashboard')
 
 @section('content')
-<main class="valign-wrapper">
+<section class="main valign-wrapper">
     <div class="container valign">
         <div class="row">
-            <div class="col s12 m8 offset-m2">
+            <div class="col s12">
                 <div class="card">
                     <div class="card-content">
                         <span class="card-title">Dashboard</span>
@@ -17,5 +17,5 @@
         </div>
         <example></example>
     </div>
-</main>
+</section>
 @endsection

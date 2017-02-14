@@ -187,6 +187,7 @@ return [
          */
         Empress\Providers\AppServiceProvider::class,
         Empress\Providers\AuthServiceProvider::class,
+        Empress\Providers\BreadcrumbServiceProvider::class,
         // Empress\Providers\BroadcastServiceProvider::class,
         Empress\Providers\EventServiceProvider::class,
         Empress\Providers\RouteServiceProvider::class,
