@@ -48,28 +48,31 @@ const app = new Vue({
 | Document ready, boot up our Materialize methods.
 |--------------------------------------------------------------------------
 */
-$(document).ready(function() {
-    $('.button-collapse').sideNav();
+
+(function($){
+    $(function(){
+        $('.button-collapse').sideNav();
     
-    $(".dropdown-button").dropdown({
-        belowOrigin: true
+        $(".dropdown-button").dropdown({
+            belowOrigin: true
+        });
+
+        $('select').material_select();
+
+        // for HTML5 "required" attribute
+        $("select[required]").css({
+            display: "inline",
+            height: 0,
+            padding: 0,
+            width: 0
+        });
+
+        // Specific modal for our alerts.
+        window.FlashModal = $('#flash-modal').modal();
+
+        // Other modals.
+        window.Modal = $('.modal').modal();
+
+        Materialize.updateTextFields();
     });
-
-    $('select').material_select();
-
-    // for HTML5 "required" attribute
-    $("select[required]").css({
-        display: "inline",
-        height: 0,
-        padding: 0,
-        width: 0
-    });
-
-    // Specific modal for our alerts.
-    window.FlashModal = $('#flash-modal').modal();
-
-    // Other modals.
-    window.Modal = $('.modal').modal();
-
-    Materialize.updateTextFields();
-});
+})(jQuery);
