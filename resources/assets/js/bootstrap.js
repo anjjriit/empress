@@ -1,40 +1,24 @@
 /*
 |--------------------------------------------------------------------------
-| Import all of our needed modules.
-|--------------------------------------------------------------------------
-*/
-import Lodash from 'lodash';
-import Hammer from 'hammerjs';
-import jQuery from 'jquery';
-import MaterializeCss from 'materialize-css';
-import Notifier from './plugins/Notifier';
-//import Form from './plugins/Form';
-import Vue from 'vue';
-import Axios from 'axios';
-//import Echo from "laravel-echo";
-
-
-
-/*
-|--------------------------------------------------------------------------
 | Assign all of our packages to the window object.
 |--------------------------------------------------------------------------
 */
 
-window._                 = Lodash;
-window.$ = window.jQuery = jQuery;
-window.Materialize       = MaterializeCss;
-window.Notifier          = Notifier;
-//window.Form              = Form;
-window.Vue               = Vue;
-window.axios             = Axios;
+window._ = require('lodash');
+window.$ = window.jQuery = require('jquery');
+
+require('materialize-css');
+
+window.Vue = require('vue');
+window.axios = require('axios');
 
 window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
 };
 
-require('jquery-validation');
+window.Notifier = require('./plugins/notifier');
+
 require('./plugins/ValidatorDefaults');
 
 /*

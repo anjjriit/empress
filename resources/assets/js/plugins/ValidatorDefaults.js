@@ -1,3 +1,4 @@
+require('jquery-validation');
 
 ValidatorDefaults = {
 
@@ -16,4 +17,6 @@ ValidatorDefaults = {
 	}
 }
 
-module.exports = ValidatorDefaults.initialize();
+ValidatorDefaults.initialize();
+
+module.exports = ValidatorDefaults;

@@ -9,15 +9,13 @@
   "devDependencies": {
     "axios": "^0.15.2",
     "gulp": "^3.9.1",
-    "hammerjs": "^2.0.8",
+    "jquery": "~2.2.4",
     "laravel-mix": "^0.7.0",
     "lodash": "^4.16.2",
     "material-design-icons": "^3.0.1",
     "materialize-css": "^0.98.0",
     "materialize-notify": "^1.0.0",
-    "vue": "^2.0.1"
-  },
-  "dependencies": {
+    "vue": "^2.0.1",
     "jquery-validation": "^1.16.0"
   }
 }
