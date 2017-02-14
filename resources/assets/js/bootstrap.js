@@ -4,7 +4,7 @@
 |--------------------------------------------------------------------------
 */
 import Lodash from 'lodash';
-import jQuery from 'jquery';
+import jQuery from 'materialize-css';
 import MaterializeCss from 'materialize-css';
 import Notifier from './plugins/Notifier';
 import Form from './plugins/Form';
