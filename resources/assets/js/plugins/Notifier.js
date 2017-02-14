@@ -8,7 +8,7 @@
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 
-import notify from 'materialize-notify';
+require('materialize-notify');
 
 class Notifier {
 	/**

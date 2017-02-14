@@ -4,10 +4,11 @@
 |--------------------------------------------------------------------------
 */
 import Lodash from 'lodash';
+import Hammer from 'hammerjs';
 import jQuery from 'jquery';
 import MaterializeCss from 'materialize-css';
 import Notifier from './plugins/Notifier';
-import Form from './plugins/Form';
+//import Form from './plugins/Form';
 import Vue from 'vue';
 import Axios from 'axios';
 //import Echo from "laravel-echo";
@@ -24,7 +25,7 @@ window._                 = Lodash;
 window.$ = window.jQuery = jQuery;
 window.Materialize       = MaterializeCss;
 window.Notifier          = Notifier;
-window.Form              = Form;
+//window.Form              = Form;
 window.Vue               = Vue;
 window.axios             = Axios;
 

@@ -280,7 +280,7 @@ module.exports.plugins = (module.exports.plugins || []).concat([
         $: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
         jquery: path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
         'window.jQuery': path.resolve(__dirname, 'node_modules/jquery/dist/jquery.js'),
-        'Hammer': 'hammerjs/hammer'
+        Hammer: path.resolve(__dirname, 'node_modules/hammerjs/hammer.js')
     }),
 
     new plugins.FriendlyErrorsWebpackPlugin(),
