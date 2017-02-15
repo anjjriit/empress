@@ -1,27 +1,8 @@
-/**
- * resources/assets/js/plugins/Notifier.js
- *
- * Notifier for access the Materialize-Notifier package.
- *
- * @author Vince Kronlein <vince@19peaches.com>
- * @license https://github.com/19peaches/empress/blob/master/LICENSE
- * @copyright Periapt, LLC. All Rights Reserved.
- */
-
 require('materialize-notify');
 
-class Notifier {
-	/**
-	 * Build up the notification.
-	 * 
-	 * @param  {string} message
-	 * @param  {string} title
-	 * @param  {string} level
-	 * @param  {string} icon
-	 * @param  {string} location
-	 * @return Notify
-	 */
-	run(message, title, level = null, icon = null, location = 'right') {
+Notifier = {
+	
+	run: function(message, title, level = null, icon = null, location = 'right') {
 		this.message = message;
 		
 		if (level) {
@@ -41,14 +22,8 @@ class Notifier {
 		this.location = location;
 		
 		this.render();
-	}
-
-	/**
-	 * Set the icon if one isn't passed in.
-	 * 
-	 * @return {string}
-	 */
-	setIcon() {
+	},
+	setIcon: function() {
 		switch (this.level) {
             case 'success':
                 this.icon = 'done_all';
@@ -69,33 +44,21 @@ class Notifier {
                 this.icon = 'notifications';
                 break;
         }
-	}
-
-	/**
-	 * Add your own template if you need.
-	 * 
-	 * @return {string}
-	 */
-	template() {
+	},
+	template: function() {
 		// you can add your own template here if you need to.
-	}
-
-	/**
-	 * Render the Notification.
-	 * 
-	 * @return Notify
-	 */
-	render() {
+	},
+	render: function() {
 		$.notify({
-            icon: this.icon,
-            title: this.title,
-            message: this.message,
+            icon: Notifier.icon,
+            title: Notifier.title,
+            message: Notifier.message,
         },{
-            type: this.level,
+            type: Notifier.level,
             timer: 5000,
             //template: this.template(); // uncomment if you've added a template above.
         });
 	}
-}
+};
 
-export default new Notifier;
+module.exports = Notifier;
