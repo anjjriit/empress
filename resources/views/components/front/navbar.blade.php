@@ -1,6 +1,6 @@
 				<div class="nav-wrapper">
                     <a href="#" class="brand-logo hide-on-large-only nav-logo">{{ config('app.name') }}</a>
-                    @include('components.member.breadcrumbs')
+                    @include('components.front.breadcrumbs')
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="#">Top</a></li>
                         <li><a href="#">Links</a></li>

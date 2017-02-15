@@ -3,7 +3,7 @@
 
 You are receiving this email because we received a password reset request for your account.
 
-Please confirm your email address by clicking on the button below.
+You can reset your password by clicking the button below.
 
 @component('mail::button', ['url' => $url])
 Reset Password

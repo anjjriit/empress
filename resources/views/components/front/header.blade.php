@@ -3,4 +3,4 @@
 						<i class="material-icons">menu</i>
 					</a>
 				</div>
-				@include('components.member.sidebar')
+				@include('components.front.sidebar')

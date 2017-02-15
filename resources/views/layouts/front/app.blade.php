@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ config('app.locale') }}">
 
     <head>
         <meta charset="utf-8">
@@ -28,16 +28,16 @@
 <body>
     <div id="app">
         <header class="pushed">
-        @include('components.member.header')
+        @include('components.front.header')
         </header>
         <main class="pushed">
             <nav class="orange darken-2">
-                @include('components.member.navbar')
+                @include('components.front.navbar')
             </nav>
             @yield('content')
         </main>
         <footer class="page-footer pushed light-green">
-            @include('components.member.footer')
+            @include('components.front.footer')
         </footer>
     </div>
 
