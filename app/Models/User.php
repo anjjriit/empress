@@ -12,6 +12,7 @@
 
 namespace Empress\Models;
 
+use Kodeine\Acl\Traits\HasRole;
 use Empress\Models\Traits\Activatable;
 use Empress\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +20,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, Activatable;
+    use Notifiable, Activatable, HasRole;
 
     /**
      * The database table used by the model.
@@ -43,38 +44,29 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be casted to native types.
      *
      * @var array
      */
     protected $casts = [
-        'username'         => 'string',
-        'name'             => 'string',
-        'email'            => 'string',
-        'password'         => 'string',
-        'activation_token' => 'string'
+		'username'         => 'string',
+		'name'             => 'string',
+		'email'            => 'string',
+		'password'         => 'string',
+		'activation_token' => 'string'
     ];
 
     /**
-     * The rules that are used to validate.
+     * The rules that is used to validate.
      *
      * @var array
      */
     public static $rules = [
-        'username'         => 'required|string',
-        'name'             => 'required|string',
-        'email'            => 'required|string|max:180',
-        'password'         => 'required|string',
-        'activation_token' => 'string'
+		'username'         => 'required|string',
+		'name'             => 'required|string',
+		'email'            => 'required|string|max:180',
+		'password'         => 'required|string',
+		'activation_token' => 'string'
     ];
 
     /**
@@ -98,4 +90,44 @@ class User extends Authenticatable
         $this->notify(new ResetPassword($token));
     }
     
+    /**
+	 * Has many relationship.
+	 *
+	 * @return Empress\Models\PermissionUser
+	 */
+	public function permissionUsers()
+	{
+		return $this->hasMany(PermissionUser::class, 'user_id', 'id');
+	}
+
+	/**
+	 * Has many relationship.
+	 *
+	 * @return Empress\Models\RoleUser
+	 */
+	public function roleUsers()
+	{
+		return $this->hasMany(RoleUser::class, 'user_id', 'id');
+	}
+
+	/**
+	 * Belongs to many relationship.
+	 *
+	 * @return Empress\Models\Permission
+	 */
+	public function permissions()
+	{
+		return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
+	}
+
+	/**
+	 * Belongs to many relationship.
+	 *
+	 * @return Empress\Models\Role
+	 */
+	public function roles()
+	{
+		return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+	}
+
 }

@@ -47,7 +47,7 @@ return [
     
     'path_request'    => app_path('Requests/'),
     
-    'path_route'      => app_path('routes/web.php'),
+    'path_route'      => base_path('routes/web.php'),
     
     'path_factory'    => base_path('database/factories/ModelFactory.php'),
 

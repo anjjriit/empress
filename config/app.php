@@ -181,6 +181,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Reliance\Flash\FlashServiceProvider::class,
         Reliance\Generator\GeneratorServiceProvider::class,
+        Kodeine\Acl\AclServiceProvider::class,
 
         /*
          * Application Service Providers...
