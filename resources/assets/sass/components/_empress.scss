@@ -217,6 +217,40 @@ a.button-collapse.top-nav i {
         }
     }
 }
+#editor {
+    margin: 0;
+    height: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+
+    textarea, 
+    .preview {
+        display: inline-block;
+        height: 100vh;
+        vertical-align: top;
+        box-sizing: border-box;
+        padding: 10px 20px !important;
+        color: #333;
+        margin-top: 1.5rem;
+    }
+
+    textarea {
+        border: none;
+        border-right: 1px solid #ccc;
+        resize: none;
+        outline: none;
+        font-family: 'Monaco', courier, monospace;
+    }
+
+    label {
+        margin-bottom: 1.5rem;
+    }
+
+    code {
+        color: #f66;
+    }
+
+}
 
 footer {
     font-size: .9rem;

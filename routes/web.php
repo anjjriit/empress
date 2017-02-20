@@ -78,10 +78,44 @@ Route::group(['namespace' => 'Front'], function() {
 	});
 });
 
+Route::group(['namespace' => 'Admin'], function() {
 
-/*
-|--------------------------------------------------------------------------
-| Page routes
-|--------------------------------------------------------------------------
-*/
-Route::resource('pages', 'PageController');
+	Route::group(['middleware' => 'auth'], function() {
+		Route::resource('pages', 'PageController');
+
+		Route::get('/admin/pages', [
+			'as'   => 'admin.pages.index',
+			'uses' => 'PageController@index'
+		]);
+
+		Route::get('/admin/pages/create', [
+			'as'   => 'admin.pages.create',
+			'uses' => 'PageController@create'
+		]);
+
+		Route::get('/admin/pages/{page}', [
+			'as'   => 'admin.pages.show',
+			'uses' => 'PageController@show'
+		]);
+
+		Route::get('/admin/pages/{page}/edit', [
+			'as'   => 'admin.pages.edit',
+			'uses' => 'PageController@edit'
+		]);
+
+		Route::get('/admin/pages/{page}/delete', [
+			'as'   => 'admin.pages.destroy',
+			'uses' => 'PageController@destroy'
+		]);
+
+		Route::post('/admin/pages', [
+			'as'   => 'admin.pages.store',
+			'uses' => 'PageController@store'
+		]);
+
+		Route::post('/admin/pages/{page}', [
+			'as'   => 'admin.pages.update',
+			'uses' => 'PageController@update'
+		]);
+	});	
+});

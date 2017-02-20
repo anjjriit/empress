@@ -78,6 +78,7 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model'  => Empress\Models\User::class,
+            'table'  => 'users',
         ],
 
         // 'users' => [

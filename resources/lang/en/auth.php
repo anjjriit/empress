@@ -23,7 +23,7 @@ return [
         'confirm'          => 'Confirm Password',
         'agree'            => 'I agree to the <a href=":link">terms and conditions.</a>',
         'send'             => 'Get Kinky',
-        'success-message'  => 'Please check your email for a link to activate your account, and finish your sign up.',
+        'success-message'  => 'Please check your email for a link to activate your account.',
         'activate-error'   => 'Your account has either already been activated, or there is a typo in your activation token.',
         'activate-success' => 'Thank you for activating your account.'
     ],

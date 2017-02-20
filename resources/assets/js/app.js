@@ -35,9 +35,11 @@ require('./bootstrap');
 
 import Example from './components/Example';
 import Welcome from './components/Welcome';
+import Editor  from './components/Editor';
 
 Vue.component('example', Example);
 Vue.component('welcome', Welcome);
+Vue.component('editor',  Editor);
 
 const app = new Vue({
     el: '#app'
@@ -74,5 +76,6 @@ const app = new Vue({
         window.Modal = $('.modal').modal();
 
         Materialize.updateTextFields();
+
     });
 })(jQuery);

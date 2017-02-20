@@ -1,6 +1,16 @@
 <?php 
 
-namespace Empress\Controllers;
+/**
+* app/Controllers/Admin/PageController.php
+*
+* Resourceful controller for Page models.
+*
+* @author Vince Kronlein <vince@19peaches.com>
+* @license https://github.com/19peaches/empress/blob/master/LICENSE
+* @copyright Periapt, LLC. All Rights Reserved.
+*/
+
+namespace Empress\Controllers\Admin;
 
 use Empress\Models\Page;
 use Empress\Base\Controller;
@@ -17,9 +27,11 @@ class PageController extends Controller
      */
     public function index()
     {
+        bcs('Pages');
+
         $pages = Page::paginate(10);
 
-        return view('pages.index', compact('pages'));
+        return view('admin.pages.index', compact('pages'));
     }
 
     /**
@@ -29,14 +41,13 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        return view('admin.pages.create');
     }
 
     /**
      * Store a newly created Page in storage.
      *
-     * @param CreatePageRequest $request
-     *
+     * @param  CreatePageRequest $request
      * @return Response
      */
     public function store(CreatePageRequest $request)
@@ -47,74 +58,73 @@ class PageController extends Controller
 
         flash('Page saved successfully.', 'success');
 
-        return redirect(route('pages.index'));
+        return redirect(route('admin.pages.index'));
     }
 
     /**
      * Show the specified Page.
      *
-     * @param  int $id
-     *
+     * @param  eloquent \Empress\Models\Page
      * @return Response
      */
-    public function show($id)
+    public function show(Page $page)
     {
-        $page = $this->exist($id);
+        bcs([
+            'Pages' => 'admin.pages.index',
+            $page->title => null
+        ]);
 
-        return view('pages.show')->with(compact('page'));
+        return view('admin.pages.show')->with(compact('page'));
     }
 
     /**
      * Show the form for editing the specified Page.
      *
-     * @param  int $id
-     *
+     * @param  eloquent \Empress\Models\Page
      * @return Response
      */
-    public function edit($id)
+    public function edit(Page $page)
     {
-        $page = $this->exist($id);
-
-        return view('pages.edit')->with(compact('page'));
+        bcs([
+            'Pages' => 'admin.pages.index',
+            $page->title => null
+        ]);
+        
+        return view('admin.pages.edit')->with(compact('page'));
     }
 
     /**
      * Update the specified Page in storage.
      *
-     * @param int $id
+     * @param eloquent \Empress\Models\Page
      * @param UpdatePageRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatePageRequest $request)
+    public function update(Page $page, UpdatePageRequest $request)
     {
-        $page = $this->exist($id);
-
         $page->fill($request->all());
 
         $page->save();
 
         flash('Page updated successfully.', 'success');
 
-        return redirect(route('pages.index'));
+        return redirect(route('admin.pages.index'));
     }
 
     /**
      * Remove the specified Page from storage.
      *
-     * @param  int $id
-     *
+     * @param  eloquent \Empress\Models\Page
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-        $page = $this->exist($id);
-
         $page->delete();
 
         flash('Page deleted successfully.', 'success');
 
-        return redirect(route('pages.index'));
+        return redirect(route('admin.pages.index'));
     }
 
     /**
@@ -130,7 +140,7 @@ class PageController extends Controller
         } catch (ModelNotFoundException $e) {
             flash('Page not found', 'danger');
 
-            return redirect(route('pages.index'));
+            return redirect(route('admin.pages.index'));
         }
 
         return $page;

@@ -49,3 +49,14 @@ if (! function_exists('bcs'))
 		app('breadcrumb')->add($text, $route);
 	}
 }
+
+if (! function_exists('parsedown'))
+{
+
+	function parsedown($content)
+	{
+		$parse = new Parsedown();
+
+		return $parse->text($content);
+	}
+}

@@ -12,15 +12,15 @@
 
 namespace Empress\Models;
 
-use Kodeine\Acl\Traits\HasRole;
 use Empress\Models\Traits\Activatable;
 use Empress\Notifications\ResetPassword;
 use Illuminate\Notifications\Notifiable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, Activatable, HasRole;
+    use Notifiable, Activatable, EntrustUserTrait;
 
     /**
      * The database table used by the model.
@@ -89,45 +89,4 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPassword($token));
     }
-    
-    /**
-	 * Has many relationship.
-	 *
-	 * @return Empress\Models\PermissionUser
-	 */
-	public function permissionUsers()
-	{
-		return $this->hasMany(PermissionUser::class, 'user_id', 'id');
-	}
-
-	/**
-	 * Has many relationship.
-	 *
-	 * @return Empress\Models\RoleUser
-	 */
-	public function roleUsers()
-	{
-		return $this->hasMany(RoleUser::class, 'user_id', 'id');
-	}
-
-	/**
-	 * Belongs to many relationship.
-	 *
-	 * @return Empress\Models\Permission
-	 */
-	public function permissions()
-	{
-		return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
-	}
-
-	/**
-	 * Belongs to many relationship.
-	 *
-	 * @return Empress\Models\Role
-	 */
-	public function roles()
-	{
-		return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
-	}
-
 }

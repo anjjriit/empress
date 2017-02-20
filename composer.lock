@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01bf658c74592287f21380b03947d20a",
-    "content-hash": "087b7fb749f7eaf8c3f4d5a58c205aef",
+    "hash": "9096d4bc2c79c8fe9231d5d6800b2c7f",
+    "content-hash": "fd3c94fab8f3a5d31e119f440366d8c3",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -870,56 +870,6 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
-        },
-        {
-            "name": "kodeine/laravel-acl",
-            "version": "v0.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kodeine/laravel-acl.git",
-                "reference": "4f6ffd453a2d4dbcc9de9febd05476aa0d92de39"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kodeine/laravel-acl/zipball/4f6ffd453a2d4dbcc9de9febd05476aa0d92de39",
-                "reference": "4f6ffd453a2d4dbcc9de9febd05476aa0d92de39",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "4.2.x|~5.0",
-                "illuminate/support": "4.2.x|~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [],
-                "psr-0": {
-                    "Kodeine\\Acl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ahsen M.",
-                    "homepage": "https://github.com/kodeine",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Light-weight role-based permissions for Laravel 5 built in Auth system.",
-            "keywords": [
-                "acl",
-                "auth",
-                "eloquent",
-                "kodeine",
-                "laravel",
-                "permissions",
-                "roles",
-                "security"
-            ],
-            "time": "2015-03-17 04:36:38"
         },
         {
             "name": "laravel/cashier",
@@ -2047,49 +1997,6 @@
             "time": "2017-02-11 22:25:05"
         },
         {
-            "name": "reliance/generator",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "/Users/vincek/Code/19peaches/reliance/generator",
-                "reference": "cb030d5caad65131472f62738d9163a95ce04fe6",
-                "shasum": null
-            },
-            "require": {
-                "doctrine/dbal": "^2.5",
-                "illuminate/support": "5.4.*",
-                "php": ">=5.6.4",
-                "reliance/flash": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Reliance\\Generator\\": "src"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bluecode"
-                }
-            ],
-            "description": "Reliance CRUD Generator/Model/Migrate from just one command with including Controller, Service, Repository, Model, Migrations, routes.php update.",
-            "keywords": [
-                "CRUD",
-                "empress",
-                "generator",
-                "laravel",
-                "migration",
-                "model",
-                "scaffold"
-            ],
-            "transport-options": {
-                "symlink": true
-            }
-        },
-        {
             "name": "stripe/stripe-php",
             "version": "v4.4.0",
             "source": {
@@ -3021,6 +2928,74 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "zizaco/entrust",
+            "version": "5.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Zizaco/entrust.git",
+                "reference": "3623cc052937d9e62543402b50f24065720d44b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Zizaco/entrust/zipball/3623cc052937d9e62543402b50f24065720d44b9",
+                "reference": "3623cc052937d9e62543402b50f24065720d44b9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "~5.0",
+                "illuminate/console": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "illuminate/database": "~5.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "~4.1",
+                "sami/sami": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/commands"
+                ],
+                "psr-4": {
+                    "Zizaco\\Entrust\\": "src/Entrust/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Elkins",
+                    "homepage": "http://andrewelkins.com"
+                },
+                {
+                    "name": "Zizaco Zizuini",
+                    "email": "zizaco@gmail.com"
+                },
+                {
+                    "name": "Ben Batschelet",
+                    "homepage": "http://github.com/bbatsche"
+                },
+                {
+                    "name": "Michele Angioni",
+                    "email": "michele.angioni@gmail.com"
+                }
+            ],
+            "description": "This package provides a flexible way to add Role-based Permissions to Laravel",
+            "keywords": [
+                "acl",
+                "auth",
+                "illuminate",
+                "laravel",
+                "permission",
+                "roles"
+            ],
+            "time": "2016-12-29 06:25:06"
         }
     ],
     "packages-dev": [
@@ -3873,6 +3848,46 @@
             "time": "2016-12-08 20:27:08"
         },
         {
+            "name": "reliance/generator",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "/Users/vincek/Code/reliance/generator",
+                "reference": "aacebff576f4d94b0125d1e8923418f2bf21b56d",
+                "shasum": null
+            },
+            "require": {
+                "doctrine/dbal": "^2.5",
+                "illuminate/support": "5.4.*",
+                "php": ">=5.6.4",
+                "reliance/flash": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Reliance\\Generator\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bluecode"
+                }
+            ],
+            "description": "Reliance CRUD Generator/Model/Migrate from just one command with including Controller, Service, Repository, Model, Migrations, routes.php update.",
+            "keywords": [
+                "CRUD",
+                "empress",
+                "generator",
+                "laravel",
+                "migration",
+                "model",
+                "scaffold"
+            ]
+        },
+        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.0",
             "source": {
@@ -4494,6 +4509,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "zizaco/entrust": 20,
         "reliance/generator": 20
     },
     "prefer-stable": false,
