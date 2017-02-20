@@ -10,11 +10,7 @@
     </div>
 
     <div class="input-field col s12">
-    	{!! Form::textarea('content', null, ['aria-required' => 'true', 'required']) !!}
-    </div>
-
-    <div class="input-field col s12">
-        <editor name="content" input="{{ $page->content ?: null }}"></editor>
+        <editor name="content" input="{{ isset($page->content) ? $page->content : null }}"></editor>
     </div>
 
     <div class="input-field col s12">

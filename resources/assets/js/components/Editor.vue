@@ -3,11 +3,11 @@
 		<textarea 
 			class="col s6 grey lighten-3" 
 			:name="this.name" 
-			:value="this.props.input" 
+			:value="this.output" 
 			@input="update" 
 			rows="4">
 		</textarea>
-		<label for="this.name">this.name</label>
+		<label :for="this.name">{{ this.name }} <small class="red-text">( use GitHub flavored markdown for your content )</small></label>
 		<div class="col s6 preview white" v-html="compiledMarkdown"></div>
 	</div>
 </template>
@@ -26,26 +26,25 @@ export default {
 		},
 		input: {
 			type: String,
-			required: false,
-			default: 'Add some content using Markdown ...'
+			required: false
 		}
 	},
 
 	data () {
 		return {
-			output: ''
+			output: this.input ? this.input : 'Add some content using Markdown ...'
 		};
 	},
 
 	computed: {
 		compiledMarkdown: function () {
-			return marked(this.props.input, { sanitize: true })
+			return marked(this.output, { sanitize: true })
 		}
 	},
 
 	methods: {
 		update: _.debounce(function (e) {
-			this.props.input = e.target.value
+			this.output = e.target.value
 		}, 300)
 	}
 };

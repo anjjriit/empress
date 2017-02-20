@@ -244,12 +244,40 @@ a.button-collapse.top-nav i {
 
     label {
         margin-bottom: 1.5rem;
+        text-transform: capitalize;
     }
 
-    code {
-        color: #f66;
-    }
+    pre {
+        /* Reset some styles that the rest of the page might have set */
+        -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
+        border-width: 0;
+        background: transparent;
+        font-family: inherit;
+        font-size: inherit;
+        margin: 0;
+        white-space: pre;
+        word-wrap: normal;
+        line-height: inherit;
+        color: inherit;
+        z-index: 2;
+        position: relative;
+        overflow: visible;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-variant-ligatures: contextual;
+        font-variant-ligatures: contextual;
 
+        code {
+            outline: none;
+            padding: 20px;
+            background: #eeeeee;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            line-height: 1.5em;
+            font-family: Fira Code, menlo, monospace;
+            width: 100%;
+            display: block;
+        }
+    }
 }
 
 footer {
