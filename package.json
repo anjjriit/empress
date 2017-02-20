@@ -8,8 +8,6 @@
   },
   "devDependencies": {
     "axios": "^0.15.2",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-preset-stage-2": "^6.0.0",
     "gulp": "^3.9.1",
     "jquery": "~2.2.4",
     "jquery-validation": "^1.16.0",
@@ -19,8 +17,5 @@
     "materialize-css": "^0.98.0",
     "materialize-notify": "^1.0.0",
     "vue": "^2.0.1"
-  },
-  "dependencies": {
-    "mueditor": "^1.0.3"
   }
 }
