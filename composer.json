@@ -1,5 +1,5 @@
 {
-    "name": "periapt/empress",
+    "name": "empress/empress",
     "description": "Starter front end and admin scaffold based on Laravel 5.4.*, VueJS 2.0 and Materialize CSS.",
     "keywords": ["framework", "laravel", "empress"],
     "license": "MIT",
@@ -14,14 +14,14 @@
         "laravelcollective/html": "^5.4",
         "pda/pheanstalk": "^3.1",
         "predis/predis": "^1.1",
-        "reliance/flash": "^1.0",
+        "empress/flash": "^1.0",
         "zizaco/entrust": "5.2.x-dev"
     },
     "repositories": [
         {
-            "name": "reliance/generator",
+            "name": "empress/generator",
             "type": "path",
-            "url": "/Users/vincek/Code/reliance/generator",
+            "url": "/Users/vincek/Code/empress/generator",
             "options": {
                 "symlink": true
             }
@@ -31,7 +31,7 @@
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7",
-        "reliance/generator": "@dev"
+        "empress/generator": "@dev"
     },
     "autoload": {
         "classmap": [
