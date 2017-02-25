@@ -1,5 +1,5 @@
 {
-    "name": "19peaches/empress",
+    "name": "periapt/empress",
     "description": "Starter front end and admin scaffold based on Laravel 5.4.*, VueJS 2.0 and Materialize CSS.",
     "keywords": ["framework", "laravel", "empress"],
     "license": "MIT",
