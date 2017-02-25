@@ -179,8 +179,8 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Reliance\Flash\FlashServiceProvider::class,
-        Reliance\Generator\GeneratorServiceProvider::class,
+        Empress\Flash\FlashServiceProvider::class,
+        Empress\Generator\GeneratorServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
@@ -222,7 +222,7 @@ return [
         'Eloquent'     => Illuminate\Database\Eloquent\Model::class,
         'Event'        => Illuminate\Support\Facades\Event::class,
         'File'         => Illuminate\Support\Facades\File::class,
-        'Flash'        => Reliance\Flash\Flash::class,
+        'Flash'        => Empress\Flash\Flash::class,
         'Form'         => Collective\Html\FormFacade::class,
         'Gate'         => Illuminate\Support\Facades\Gate::class,
         'Hash'         => Illuminate\Support\Facades\Hash::class,
