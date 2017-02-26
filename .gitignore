@@ -9,9 +9,9 @@
 /storage/*.key
 /vendor
 /.idea
-composer.lock
-Homestead.json
-Homestead.yaml
+/composer.lock
+/Homestead.json
+/Homestead.yaml
 .env
 .DS_Store
 !.gitkeep
