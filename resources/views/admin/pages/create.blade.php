@@ -9,7 +9,7 @@
        </div>
 	</div>
 	<div class="row">
-    {!! Form::open(['route' => 'admin.pages.store', 'class' => 'form-horizontal']) !!}
+    {!! Form::open(['route' => 'admin.pages.store', 'class' => 'col s12', 'id' => 'page-create']) !!}
         @include('admin.pages.form')
     {!! Form::close() !!}
     </div>

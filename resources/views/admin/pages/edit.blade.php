@@ -9,7 +9,7 @@
        </div>
 	</div>
 	<div class="row">
-	    {!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'class' => 'col s12', 'id' => 'login-edit']) !!}
+	    {!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'class' => 'col s12', 'id' => 'page-edit']) !!}
 	        @include('admin.pages.form')
 	    {!! Form::close() !!}
     </div>
@@ -18,6 +18,12 @@
 
 @section('scripts')
 <script>
-	
+	$(document).ready(function() {
+		$('#content').meltdown({
+			openPreview: true,
+			previewHeight: "auto",
+			sidebyside: true
+		});
+	});
 </script>
 @endsection

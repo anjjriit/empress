@@ -21,7 +21,7 @@
         {
             "name": "empress/generator",
             "type": "path",
-            "url": "/Users/vincek/Code/empress/generator",
+            "url": "/Users/vincek/Code/19peaches/empress/project/generator",
             "options": {
                 "symlink": true
             }

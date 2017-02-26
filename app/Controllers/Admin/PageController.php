@@ -52,9 +52,7 @@ class PageController extends Controller
      */
     public function store(CreatePageRequest $request)
     {
-        $input = $request->all();
-
-        Page::create($input);
+        Page::create($request->all());
 
         flash('Page saved successfully.', 'success');
 
@@ -125,24 +123,5 @@ class PageController extends Controller
         flash('Page deleted successfully.', 'success');
 
         return redirect(route('admin.pages.index'));
-    }
-
-    /**
-     * Check if a record exists.
-     *
-     * @param  int $id
-     * @return Eloquent
-     */
-    private function exist($id)
-    {
-        try {
-            $page = Page::findOrFail($id);
-        } catch (ModelNotFoundException $e) {
-            flash('Page not found', 'danger');
-
-            return redirect(route('admin.pages.index'));
-        }
-
-        return $page;
     }
 }
