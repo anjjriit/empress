@@ -37,9 +37,9 @@ import Example from './components/Example';
 import Welcome from './components/Welcome';
 //import Editor  from './components/Editor';
 
+window.hljs = require('highlight.js');
+
 require('./plugins/rangyinputs-jquery.min.js');
-//require('./plugins/element_resize_detection.js');
-window.Markdown = require('./plugins/js-markdown-extra.js');
 require('./plugins/jquery.meltdown.js');
 
 Vue.component('example', Example);

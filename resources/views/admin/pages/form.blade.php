@@ -11,7 +11,7 @@
 
     <div class="input-field col s12">
         <!-- <editor name="content" input="{{ isset($page->content) ? $page->content : null }}"></editor> -->
-        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'rows' => '12', 'class' => '', 'required']) !!}
+        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'rows' => '12', 'class' => 'editor', 'required']) !!}
         {!! Form::label('content', 'Content', ['for' => 'content']) !!}
     </div>
 

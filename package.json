@@ -9,6 +9,7 @@
   "devDependencies": {
     "axios": "^0.15.2",
     "gulp": "^3.9.1",
+    "highlight.js": "^9.9.0",
     "jquery": "~2.2.4",
     "jquery-validation": "^1.16.0",
     "laravel-mix": "^0.7.0",

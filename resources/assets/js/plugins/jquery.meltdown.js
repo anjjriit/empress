@@ -5,6 +5,7 @@
  * Version: 0.2 (??-APR-2014)
  * Requires: jQuery v1.7.2 or later (1.9.1 recommended)
  */
+
 import marked from 'marked';
 
 (function ($, window, document, undefined) {
@@ -58,6 +59,7 @@ import marked from 'marked';
             // Use $.meltdown.controlsGroup() to make groups and subgroups of controls.
             // The available control names come from the keys of $.meltdown.controlDefs (see below)
             controls: controlsGroup("", "", [
+                controlsGroup("h", "Headers", ["h1", "h2", "h3"]),
                 "preview",
                 "bold",
                 "italics",
@@ -65,29 +67,25 @@ import marked from 'marked';
                 "ol",
                 "|",
                 "table",
-                controlsGroup("h", "Headers", ["h1", "h2", "h3"]),
                 "|",
-                controlsGroup("kitchenSink", "Kitchen Sink", [
-                    "link",
-                    "img",
-                    "blockquote",
-                    "codeblock",
-                    "code",
-                    "footnote",
-                    "hr"
-                ]),
-                "fullscreen",
-                "sidebyside"
+                "link",
+                "img",
+                "blockquote",
+                "codeblock",
+                "code",
+                "hr",
+                "fullscreen"
+                //"sidebyside"
             ]),
 
             // If true, goes directly in fullscreen mode:
             fullscreen: false,
 
             // Should the preview be visible by default ?
-            openPreview: false,
+            openPreview: true,
 
             // A CSS height or "editorHeight" or "auto" (to let the height adjust to the content).
-            previewHeight: "100%",
+            previewHeight: "100vh",
 
             // If true, when the preview is toggled it will (un)collapse resulting in the total height of the wrap to change.
             // Set this to false if you want the editor to expand/shrinkin the opposite way of the preview.
@@ -334,7 +332,7 @@ import marked from 'marked';
 
             } else if ($.isArray(controlName)) {
                 control.addClass(plgName + "_controlgroup-" + controlName.name + " " + plgName + '_controlgroup ' + plgName + '_controlbutton');
-                span.text(controlName.label).append('<i class="meltdown-icon-caret-down" />');
+                span.text(controlName.label).append('&nbsp; <i class="meltdown-icon-caret-down" />');
                 addGroupClickHandler(control);
                 control.append(buildControls(meltdown, controlName, true));
             }

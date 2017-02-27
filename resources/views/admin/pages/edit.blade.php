@@ -19,11 +19,12 @@
 @section('scripts')
 <script>
 	$(document).ready(function() {
-		$('#content').meltdown({
-			openPreview: true,
-			previewHeight: "auto",
-			sidebyside: true
-		});
+		$('.editor').meltdown();
 	});
+
+	$('.meltdown_preview pre code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
+
 </script>
 @endsection
