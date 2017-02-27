@@ -5,19 +5,27 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12">
-           <h4 class="left">Create Page</h4>
+           <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Create Page</span>
+                    <hr>
+                    {!! Form::open(['route' => 'admin.pages.store', 'id' => 'page-create']) !!}
+                      @include('admin.pages.form')
+                    {!! Form::close() !!}
+            </div>
        </div>
 	</div>
-	<div class="row">
-    {!! Form::open(['route' => 'admin.pages.store', 'class' => 'col s12', 'id' => 'page-create']) !!}
-        @include('admin.pages.form')
-    {!! Form::close() !!}
-    </div>
 </div>
 @endsection
 
 @section('scripts')
 <script>
-	
+	$(document).ready(function() {
+		$('.editor').meltdown();
+	});
+
+	$('.meltdown_preview pre code').each(function(i, block) {
+	    hljs.highlightBlock(block);
+	});
 </script>
 @endsection

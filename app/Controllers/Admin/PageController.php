@@ -41,6 +41,11 @@ class PageController extends Controller
      */
     public function create()
     {
+        bcs([
+            'Pages' => 'admin.pages.index',
+            'Create Page' => null
+        ]);
+
         return view('admin.pages.create');
     }
 
@@ -57,22 +62,6 @@ class PageController extends Controller
         flash('Page saved successfully.', 'success');
 
         return redirect(route('admin.pages.index'));
-    }
-
-    /**
-     * Show the specified Page.
-     *
-     * @param  eloquent \Empress\Models\Page
-     * @return Response
-     */
-    public function show(Page $page)
-    {
-        bcs([
-            'Pages' => 'admin.pages.index',
-            $page->title => null
-        ]);
-
-        return view('admin.pages.show')->with(compact('page'));
     }
 
     /**

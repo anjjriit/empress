@@ -217,7 +217,7 @@ a.button-collapse.top-nav i {
         }
     }
 }
-#editor {
+/*#editor {
     margin: 0;
     height: 100%;
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -248,7 +248,6 @@ a.button-collapse.top-nav i {
     }
 
     pre {
-        /* Reset some styles that the rest of the page might have set */
         -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0;
         border-width: 0;
         background: transparent;
@@ -278,8 +277,10 @@ a.button-collapse.top-nav i {
             display: block;
         }
     }
+}*/
+.card .card-content .card-title {
+    display: inline-block;
 }
-
 footer {
     font-size: .9rem;
 

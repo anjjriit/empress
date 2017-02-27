@@ -20,9 +20,9 @@ return [
     | This controller will be used as a base controller of all controllers
     |
      */
+    'base_name'       => 'Empress\Base',
 
     'base_controller' => 'Empress\Base\Controller',
-    'base_name'       => 'Empress\Base',
 
     /*
     |--------------------------------------------------------------------------
@@ -41,9 +41,9 @@ return [
     
     'path_service'    => app_path('Services/'),
     
-    'path_controller' => app_path('Controllers/'),
+    'path_controller' => app_path('Controllers/Admin/'),
     
-    'path_view'       => base_path('resources/views/'),
+    'path_view'       => base_path('resources/views/admin/'),
     
     'path_request'    => app_path('Requests/'),
     
@@ -66,7 +66,7 @@ return [
     
     'namespace_service'    => 'Empress\Services',
     
-    'namespace_controller' => 'Empress\Controllers',
+    'namespace_controller' => 'Empress\Controllers\Admin',
     
     'namespace_request'    => 'Empress\Requests',
 
@@ -94,7 +94,7 @@ return [
     | View extend
     |--------------------------------------------------------------------------
      */
-    'main_layout' => 'layouts.app',
+    'main_layout' => 'layouts.front.app',
 
     /*
     |--------------------------------------------------------------------------
@@ -102,7 +102,7 @@ return [
     |--------------------------------------------------------------------------
      */
 
-    'route_prefix' => '',
+    'route_prefix' => 'admin.',
 
     /*
     |--------------------------------------------------------------------------

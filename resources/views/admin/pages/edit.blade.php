@@ -5,14 +5,16 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12">
-           <h4 class="left">{{ $page->title }}</h4>
+           <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Edit {{ $page->title }}</span>
+                    <hr>
+                    {!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'id' => 'page-edit']) !!}
+	        		@include('admin.pages.form')
+	    			{!! Form::close() !!}
+            </div>
        </div>
 	</div>
-	<div class="row">
-	    {!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'class' => 'col s12', 'id' => 'page-edit']) !!}
-	        @include('admin.pages.form')
-	    {!! Form::close() !!}
-    </div>
 </div>
 @endsection
 

@@ -93,11 +93,6 @@ Route::group(['namespace' => 'Admin'], function() {
 			'uses' => 'PageController@create'
 		]);
 
-		Route::get('/admin/pages/{page}', [
-			'as'   => 'admin.pages.show',
-			'uses' => 'PageController@show'
-		]);
-
 		Route::get('/admin/pages/{page}/edit', [
 			'as'   => 'admin.pages.edit',
 			'uses' => 'PageController@edit'
@@ -116,6 +111,96 @@ Route::group(['namespace' => 'Admin'], function() {
 		Route::post('/admin/pages/{page}', [
 			'as'   => 'admin.pages.update',
 			'uses' => 'PageController@update'
+		]);
+
+		Route::get('/admin/roles', [
+			'as'   => 'admin.roles.index',
+			'uses' => 'RoleController@index'
+		]);
+
+		Route::get('/admin/roles/create', [
+			'as'   => 'admin.roles.create',
+			'uses' => 'RoleController@create'
+		]);
+
+		Route::get('/admin/roles/{role}/edit', [
+			'as'   => 'admin.roles.edit',
+			'uses' => 'RoleController@edit'
+		]);
+
+		Route::get('/admin/roles/{role}/delete', [
+			'as'   => 'admin.roles.destroy',
+			'uses' => 'RoleController@destroy'
+		]);
+
+		Route::post('/admin/roles', [
+			'as'   => 'admin.roles.store',
+			'uses' => 'RoleController@store'
+		]);
+
+		Route::post('/admin/roles/{role}', [
+			'as'   => 'admin.roles.update',
+			'uses' => 'RoleController@update'
+		]);
+
+		Route::get('/admin/permissions', [
+			'as'   => 'admin.permissions.index',
+			'uses' => 'PermissionController@index'
+		]);
+
+		Route::get('/admin/permissions/create', [
+			'as'   => 'admin.permissions.create',
+			'uses' => 'PermissionController@create'
+		]);
+
+		Route::get('/admin/permissions/{permission}/edit', [
+			'as'   => 'admin.permissions.edit',
+			'uses' => 'PermissionController@edit'
+		]);
+
+		Route::get('/admin/permissions/{permission}/delete', [
+			'as'   => 'admin.permissions.destroy',
+			'uses' => 'PermissionController@destroy'
+		]);
+
+		Route::post('/admin/permissions', [
+			'as'   => 'admin.permissions.store',
+			'uses' => 'PermissionController@store'
+		]);
+
+		Route::post('/admin/permissions/{permission}', [
+			'as'   => 'admin.permissions.update',
+			'uses' => 'PermissionController@update'
+		]);
+
+		Route::get('/admin/users', [
+			'as'   => 'admin.users.index',
+			'uses' => 'UserController@index'
+		]);
+
+		Route::get('/admin/users/create', [
+			'as'   => 'admin.users.create',
+			'uses' => 'UserController@create'
+		]);
+
+		Route::get('/admin/users/{user}/edit', [
+			'as'   => 'admin.users.edit',
+			'uses' => 'UserController@edit'
+		]);
+
+		Route::get('/admin/users/{user}/delete', [
+			'as'   => 'admin.users.destroy',
+			'uses' => 'UserController@destroy'
+		]);
+
+		Route::post('/admin/users', [
+			'as'   => 'admin.users.store',
+			'uses' => 'UserController@store'
+		]);
+
+		Route::post('/admin/users/{user}', [
+			'as'   => 'admin.users.update',
+			'uses' => 'UserController@update'
 		]);
 	});	
 });
