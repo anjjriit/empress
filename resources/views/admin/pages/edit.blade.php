@@ -5,15 +5,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12">
-           <div class="card">
+            <div class="card">
+           		{!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'id' => 'page-edit']) !!}
                 <div class="card-content">
                     <span class="card-title">Edit {{ $page->title }}</span>
                     <hr>
-                    {!! Form::model($page, ['route' => ['admin.pages.update', $page->id], 'method' => 'post', 'id' => 'page-edit']) !!}
 	        		@include('admin.pages.form')
-	    			{!! Form::close() !!}
+	        	</div>
+	        	<div class="card-action">
+				    {!! link_to_route('admin.pages.index', 'Cancel', [], ['class' => 'btn grey waves-effect waves-light']) !!}
+				    {!! Form::submit('Save', ['class' => 'btn light-blue lighten-2 waves-effect waves-light']) !!}
+				</div>
+	    		{!! Form::close() !!}
             </div>
-       </div>
+        </div>
 	</div>
 </div>
 @endsection

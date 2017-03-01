@@ -10,21 +10,19 @@
                     <span class="card-title">Roles</span>
                     {!! link_to_route('admin.roles.create', 'Add Role', [], ['class' => 'btn light-blue lighten-2 waves-effect waves-light right']) !!}
                     <hr>
-                    @if($roles->isEmpty())
-                    <div class="center">No Roles found.</div>
-                    @else
                     <table class="responsive">
                         <thead>
+                            <th data-field="display_name">Display</th>
                             <th data-field="name">Name</th>
-                            <th data-field="display_name">Display Name</th>
                             <th data-field="description">Description</th>
                             <th class="right">Action</th>
                         </thead>
                         <tbody>
+                            @if(! $roles->isEmpty())
                             @foreach($roles as $role)
                             <tr>
-                                <td>{{ $role->name }}</td>
                                 <td>{{ $role->display_name }}</td>
+                                <td>{{ $role->name }}</td>
                                 <td>{{ $role->description }}</td>
                                 <td class="right">
                                     <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}" class="green-text text-lighten-1" title="Edit">
@@ -36,9 +34,13 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="5" class="center">No Roles found.</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
-                    @endif
                 </div>
                 @include('admin.common.paginate', ['records' => $roles])
             </div> 

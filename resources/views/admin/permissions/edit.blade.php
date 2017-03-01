@@ -6,12 +6,17 @@
 	<div class="row">
 		<div class="col s12">
            <div class="card">
+           		{!! Form::model($permission, ['route' => ['admin.permissions.update', $permission->id], 'method' => 'post', 'id' => 'permission-edit']) !!}
                 <div class="card-content">
                     <span class="card-title">Edit {{ $permission->display_name }}</span>
                     <hr>
-                    {!! Form::model($permission, ['route' => ['admin.permissions.update', $permission->id], 'method' => 'post', 'id' => 'permission-edit']) !!}
-			        	@include('admin.permissions.form')
-			    	{!! Form::close() !!}
+			        @include('admin.permissions.form')
+			    </div>
+                <div class="card-action">
+                    {!! link_to_route('admin.permissions.index', 'Cancel', [], ['class' => 'btn grey waves-effect waves-light']) !!}
+                    {!! Form::submit('Save', ['class' => 'btn light-blue lighten-2 waves-effect waves-light']) !!}
+                </div>
+			    {!! Form::close() !!}
             </div>
        </div>
 	</div>
@@ -22,11 +27,13 @@
 <script>
 	$('#permission-edit').validate({
 		rules: {
-
-		},
-		messages: {
-
-		}
+            name: 'required',
+            roles: 'required'
+        },
+        messages: {
+            name: 'Please enter a Name.',
+            roles: 'Please select at least one Role.'
+        }
 	});
 </script>
 @endsection

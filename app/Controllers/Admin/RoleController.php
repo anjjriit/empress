@@ -1,5 +1,15 @@
 <?php 
 
+/**
+ * app/Controllers/Admin/RoleController.php
+ *
+ * Resourceful controller for Role models.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Controllers\Admin;
 
 use Empress\Models\Role;

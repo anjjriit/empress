@@ -10,10 +10,6 @@
                     <span class="card-title">Users</span>
                     {!! link_to_route('admin.users.create', 'Add User', [], ['class' => 'btn light-blue lighten-2 waves-effect waves-light right']) !!}
                     <hr>
-                    @if($users->isEmpty())
-                    <br>
-                    <div class="center">No Users found.</div>
-                    @else
                     <table class="responsive">
                         <thead>
                             <th data-field="username">Username</th>
@@ -23,6 +19,7 @@
                             <th class="right">Action</th>
                         </thead>
                         <tbody>
+                            @if(! $users->isEmpty())
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->username }}</td>
@@ -39,9 +36,13 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="5" class="center">No Users found.</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
-                    @endif
                 </div>
                 @include('admin.common.paginate', ['records' => $users])
             </div>

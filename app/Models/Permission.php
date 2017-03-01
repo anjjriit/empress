@@ -1,14 +1,14 @@
 <?php 
 
 /**
-* app/Models/Permission.php
-*
-* Model to interact with the permissions table.
-*
-* @author Vince Kronlein <vince@19peaches.com>
-* @license https://github.com/19peaches/empress/blob/master/LICENSE
-* @copyright Periapt, LLC. All Rights Reserved.
-*/
+ * app/Models/Permission.php
+ *
+ * Model to interact with the permissions table.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
 
 namespace Empress\Models;
 
@@ -39,13 +39,23 @@ class Permission extends EntrustPermission
     ];
 
     /**
+     * Relations that should always be eager loaded.
+     * 
+     * @var array
+     */
+    protected $with = [
+        'roles'
+    ];
+
+    /**
      * The rules used to validate.
      *
      * @var array
      */
     public static $rules = [
-		'name'         => 'required|string',
-		'display_name' => 'string',
-		'description'  => 'string'
+        'name'         => 'required|string',
+        'display_name' => 'string',
+        'description'  => 'string',
+        'roles'        => 'required|array'
     ];
 }

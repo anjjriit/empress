@@ -10,23 +10,22 @@
                     <span class="card-title">Permissions</span>
                     {!! link_to_route('admin.permissions.create', 'Add Permission', [], ['class' => 'btn light-blue lighten-2 waves-effect waves-light right']) !!}
                     <hr>
-                    @if($permissions->isEmpty())
-                    <br>
-                    <div class="center">No Permissions found.</div>
-                    @else
                     <table class="responsive">
                         <thead>
+                            <th data-field="display_name">Display</th>
                             <th data-field="name">Name</th>
-                            <th data-field="display_name">Display Name</th>
                             <th data-field="description">Description</th>
+                            <th data-field="roles">Roles</th>
                             <th class="right">Action</th>
                         </thead>
                         <tbody>
+                            @if(! $permissions->isEmpty())
                             @foreach($permissions as $permission)
                             <tr>
-                                <td>{{ $permission->name }}</td>
                                 <td>{{ $permission->display_name }}</td>
-                                <td>{{ $permission->description }}</td>
+                                <td>{{ $permission->name }}</td>
+                                <td><span class="truncate">{{ $permission->description }}</span></td>
+                                <td>{{ implode(', ', $permission->roles()->pluck('display_name')->toArray()) }}</td>
                                 <td class="right">
                                     <a href="{{ route('admin.permissions.edit', ['permission' => $permission->id]) }}" class="green-text text-lighten-1" title="Edit">
                                         <i class="material-icons">create</i>
@@ -37,9 +36,13 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                            <tr>
+                                <td colspan="5" class="center">No Permissions found.</td>
+                            </tr>
+                            @endif
                         </tbody>
                     </table>
-                    @endif
                 </div>
                 @include('admin.common.paginate', ['records' => $permissions])
             </div>

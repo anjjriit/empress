@@ -65,15 +65,7 @@ const app = new Vue({
         });
 
         $('select').material_select();
-
-        // for HTML5 "required" attribute
-        $("select[required]").css({
-            display: "inline",
-            height: 0,
-            padding: 0,
-            width: 0
-        });
-
+        
         // Specific modal for our alerts.
         window.FlashModal = $('#flash-modal').modal();
 

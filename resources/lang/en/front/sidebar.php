@@ -17,6 +17,7 @@ return [
 	'logout'    => 'Logout',
 	'dashboard' => 'Dashboard',
 	'messages'  => 'Messages',
+	'pages'     => 'Pages',
 	'photos'    => [
 		'photo'   => 'Photos',
 		'add'     => 'Add Photo',
@@ -27,5 +28,11 @@ return [
 		'subscription' => 'Subscription',
 		'mine'         => 'My Subscription',
 		'cancel'       => 'Cancel'
+	],
+	'personnel' => [
+		'personnel'   => 'Personnel',
+		'users'       => 'Users',
+		'roles'       => 'Roles',
+		'permissions' => 'Permissions'
 	]
 ];

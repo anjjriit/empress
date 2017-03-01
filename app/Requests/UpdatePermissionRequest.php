@@ -1,5 +1,15 @@
 <?php 
 
+/**
+ * app/Requests/UpdatePermissionRequest.php
+ *
+ * Form request for updating permissions.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Requests;
 
 use Empress\Base\Request;

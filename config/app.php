@@ -178,7 +178,6 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
         Empress\Flash\FlashServiceProvider::class,
         Empress\Generator\GeneratorServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
@@ -191,6 +190,7 @@ return [
         Empress\Providers\BreadcrumbServiceProvider::class,
         // Empress\Providers\BroadcastServiceProvider::class,
         Empress\Providers\EventServiceProvider::class,
+        Empress\Providers\HtmlServiceProvider::class,
         Empress\Providers\RouteServiceProvider::class,
 
     ],

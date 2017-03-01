@@ -40,6 +40,14 @@ main nav {
         }
     }
 }
+input[type=button],
+input[type=submit] {
+   outline:none;
+}
+input[type=button]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner {
+   border: 0;
+}
 .pushed {
     padding-left: 300px;
 }
@@ -217,6 +225,10 @@ a.button-collapse.top-nav i {
         }
     }
 }
+.select-wrapper + label {
+    position: absolute;
+    top: -14px;
+}
 /*#editor {
     margin: 0;
     height: 100%;
@@ -280,6 +292,7 @@ a.button-collapse.top-nav i {
 }*/
 .card .card-content .card-title {
     display: inline-block;
+    font-weight: 400;
 }
 footer {
     font-size: .9rem;
@@ -343,10 +356,21 @@ span {
 .nav-logo:hover {
     background-color: transparent;
 }
-label {
+
+input:not([type]) + label, 
+input[type=text] + label, 
+input[type=password] + label, 
+input[type=email] + label, 
+input[type=url] + label, 
+input[type=time] + label, 
+input[type=date] + label, 
+input[type=datetime] + label, 
+input[type=datetime-local] + label, 
+input[type=tel] + label, 
+input[type=number] + label, 
+input[type=search] + label, 
+textarea.materialize-textarea + label {
     width: 100%;
-}
-.input-field label {
     font-size: 0.8rem;
     -webkit-transform: translateY(-140%);
     -moz-transform: translateY(-140%);
@@ -354,6 +378,7 @@ label {
     -o-transform: translateY(-140%);
     transform: translateY(-140%);
 }
+
 input:not([type]) + label:after, 
 input[type=text] + label:after, 
 input[type=password] + label:after, 

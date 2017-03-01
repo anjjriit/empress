@@ -6,11 +6,17 @@
 	<div class="row">
 		<div class="col s12">
            <div class="card">
+           		{!! Form::model($role, ['route' => ['admin.roles.update', $role->id], 'method' => 'post', 'id' => 'role-edit']) !!}
                 <div class="card-content">
                     <span class="card-title">Edit {{ $role->display_name }}</span>
-                	{!! Form::model($role, ['route' => ['admin.roles.update', $role->id], 'method' => 'post', 'id' => 'role-edit']) !!}
+                    <hr>
 	        		@include('admin.roles.form')
-	    			{!! Form::close() !!}
+	        	</div>
+				<div class="card-action">
+				    {!! link_to_route('admin.roles.index', 'Cancel', [], ['class' => 'btn grey waves-effect waves-light']) !!}
+				    {!! Form::submit('Save', ['class' => 'btn light-blue lighten-2 waves-effect waves-light']) !!}
+				</div>
+	    		{!! Form::close() !!}
             </div>
        </div>
 	</div>
@@ -21,11 +27,11 @@
 <script>
 	$('#role-edit').validate({
 		rules: {
-
-		},
-		messages: {
-
-		}
+            name: 'required'
+        },
+        messages: {
+            name: 'Please enter a Name.'
+        }
 	});
 </script>
 @endsection

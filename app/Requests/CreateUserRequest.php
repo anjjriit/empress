@@ -1,9 +1,19 @@
 <?php 
 
+/**
+ * app/Requests/CreateUserRequest.php
+ *
+ * Form request for creating new users.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Requests;
 
-use Empress\Base\Request;
 use Empress\Models\User;
+use Empress\Base\Request;
 
 class CreateUserRequest extends Request 
 {
@@ -24,6 +34,12 @@ class CreateUserRequest extends Request
 	 */
 	public function rules()
 	{
-		return User::$rules;
+		return [
+			'username'         => 'required|string',
+			'name'             => 'required|string',
+			'email'            => 'required|string|max:180',
+			'password'         => 'string',
+			'activation_token' => 'string'
+	    ];
 	}
 }

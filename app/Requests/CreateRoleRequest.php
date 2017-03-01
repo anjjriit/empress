@@ -1,9 +1,19 @@
 <?php 
 
+/**
+ * app/Requests/CreateRoleRequest.php
+ *
+ * Form request for creating new roles.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Requests;
 
-use Empress\Base\Request;
 use Empress\Models\Role;
+use Empress\Base\Request;
 
 class CreateRoleRequest extends Request 
 {

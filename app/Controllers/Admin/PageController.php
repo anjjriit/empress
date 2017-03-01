@@ -1,14 +1,14 @@
 <?php 
 
 /**
-* app/Controllers/Admin/PageController.php
-*
-* Resourceful controller for Page models.
-*
-* @author Vince Kronlein <vince@19peaches.com>
-* @license https://github.com/19peaches/empress/blob/master/LICENSE
-* @copyright Periapt, LLC. All Rights Reserved.
-*/
+ * app/Controllers/Admin/PageController.php
+ *
+ * Resourceful controller for Page models.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
 
 namespace Empress\Controllers\Admin;
 

@@ -1,9 +1,20 @@
 <?php 
 
+/**
+ * app/Controllers/Admin/PermissionController.php
+ *
+ * Resourceful controller for Permission models.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Controllers\Admin;
 
-use Empress\Models\Permission;
+use Empress\Models\Role;
 use Empress\Base\Controller;
+use Empress\Models\Permission;
 use Empress\Requests\CreatePermissionRequest;
 use Empress\Requests\UpdatePermissionRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -29,14 +40,17 @@ class PermissionController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Role $role)
     {
         bcs([
             'Permissions' => 'admin.permissions.index',
             'Create Permission' => null
         ]);
 
-        return view('admin.permissions.create');
+        $data['roles']   = $role->pluck('display_name', 'id');
+        $data['current'] = null;
+        
+        return view('admin.permissions.create', $data);
     }
 
     /**
@@ -47,7 +61,9 @@ class PermissionController extends Controller
      */
     public function store(CreatePermissionRequest $request)
     {
-        Permission::create($request->all());
+        $permission = Permission::create($request->all());
+
+        $permission->roles()->sync($request->roles);
 
         flash('Permission saved successfully.', 'success');
 
@@ -60,14 +76,18 @@ class PermissionController extends Controller
      * @param  eloquent \Empress\Models\Permission
      * @return Response
      */
-    public function edit(Permission $permission)
+    public function edit(Permission $permission, Role $role)
     {
         bcs([
             'Permissions' => 'admin.permissions.index',
             $permission->display_name => null
         ]);
 
-        return view('admin.permissions.edit')->with(compact('permission'));
+        $data['roles']      = $role->pluck('display_name', 'id');
+        $data['permission'] = $permission;
+        $data['current']    = $permission->roles()->pluck('id')->toArray();
+        
+        return view('admin.permissions.edit', $data);
     }
 
     /**
@@ -82,6 +102,8 @@ class PermissionController extends Controller
         $permission->fill($request->all());
 
         $permission->save();
+
+        $permission->roles()->sync($request->roles);
 
         flash('Permission updated successfully.', 'success');
 

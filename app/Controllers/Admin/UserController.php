@@ -1,7 +1,18 @@
 <?php 
 
+/**
+ * app/Controllers/Admin/UserController.php
+ *
+ * Resourceful controller for User models.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
+ */
+
 namespace Empress\Controllers\Admin;
 
+use Empress\Models\Role;
 use Empress\Models\User;
 use Empress\Base\Controller;
 use Empress\Requests\CreateUserRequest;
@@ -29,14 +40,17 @@ class UserController extends Controller
      *
      * @return Response
      */
-    public function create()
+    public function create(Role $role)
     {
         bcs([
             'Users' => 'admin.users.index',
             'Create User' => null
         ]);
 
-        return view('admin.users.create');
+        $data['roles']   = $role->pluck('display_name', 'id');
+        $data['current'] = null;
+
+        return view('admin.users.create', $data);
     }
 
     /**
@@ -47,7 +61,9 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        User::create($request->all());
+        $user = User::create($request->all());
+
+        $user->roles()->sync($request->roles);
 
         flash('User saved successfully.', 'success');
 
@@ -60,14 +76,18 @@ class UserController extends Controller
      * @param  eloquent \Empress\Models\User
      * @return Response
      */
-    public function edit(User $user)
+    public function edit(User $user, Role $role)
     {
         bcs([
             'Users' => 'admin.users.index',
             $user->name => null
         ]);
 
-        return view('admin.users.edit')->with(compact('user'));
+        $data['roles']   = $role->pluck('display_name', 'id');
+        $data['user']    = $user;
+        $data['current'] = $user->roles()->pluck('id')->toArray();
+
+        return view('admin.users.edit', $data);
     }
 
     /**
@@ -82,6 +102,8 @@ class UserController extends Controller
         $user->fill($request->all());
 
         $user->save();
+
+        $user->roles()->sync($request->roles);
 
         flash('User updated successfully.', 'success');
 

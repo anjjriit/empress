@@ -1,11 +1,13 @@
 <?php
 
 /**
- * This file is part of Entrust,
- * a role & permission management solution for Laravel.
+ * config/entrust.php
  *
- * @license MIT
- * @package Zizaco\Entrust
+ * Entrust roles configuration.
+ *
+ * @author Vince Kronlein <vince@19peaches.com>
+ * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @copyright Periapt, LLC. All Rights Reserved.
  */
 
 return [
@@ -19,7 +21,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'App\Role',
+    'role' => 'Empress\Models\Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -40,7 +42,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'App\Permission',
+    'permission' => 'Empress\Models\Permission',
 
     /*
     |--------------------------------------------------------------------------

@@ -93,15 +93,38 @@
 										</ul>
 									</div>
 								</li>
+								@if(auth()->user()->can('access_admin'))
+								<li class="bold">
+		    						<a class="collapsible-header waves-effect waves-light">
+										<i class="material-icons">people</i>
+										{{ trans('front/sidebar.personnel.personnel') }}
+										<i class="material-icons right">expand_more</i>
+									</a>
+									<div class="collapsible-body">
+										<ul>
+											<li>
+												<a href="{{ route('admin.roles.index') }}" 
+												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.roles') }}</a>
+											</li>
+											<li>
+												<a href="{{ route('admin.permissions.index') }}" 
+												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.permissions') }}</a>
+											</li>
+											<li>
+												<a href="{{ route('admin.users.index') }}" 
+												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.users') }}</a>
+											</li>
+										</ul>
+									</div>
+		    					</li>
+		    					@endif
 		    				</ul>
 		    			</li>
 		    			<li class="bold">
-		    				<a href="#" 
-		    					class="waves-effect waves-light">Another Link</a>
-		    			</li>
-		    			<li class="bold">
-		    				<a href="#" 
-		    					class="waves-effect waves-light">Another Link</a>
+		    				<a href="{{ route('admin.pages.index') }}" class="waves-effect waves-light">
+		    					<i class="material-icons">insert_drive_file</i>
+                            	{{ trans('front/sidebar.pages') }}
+		    				</a>
 		    			</li>
 					</ul>
 				</div>

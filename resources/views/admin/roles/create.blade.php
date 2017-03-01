@@ -6,12 +6,17 @@
 	<div class="row">
 		<div class="col s12">
            <div class="card">
+                {!! Form::open(['route' => 'admin.roles.store', 'id' => 'role-create']) !!}
                 <div class="card-content">
                     <span class="card-title">Create Role</span>
                     <hr>
-                    {!! Form::open(['route' => 'admin.roles.store', 'id' => 'role-create']) !!}
-                        @include('admin.roles.form')
-                    {!! Form::close() !!}
+                    @include('admin.roles.form')
+                </div>
+                <div class="card-action">
+                    {!! link_to_route('admin.roles.index', 'Cancel', [], ['class' => 'btn grey waves-effect waves-light']) !!}
+                    {!! Form::submit('Save', ['class' => 'btn light-blue lighten-2 waves-effect waves-light']) !!}
+                </div>
+                {!! Form::close() !!}
             </div>
        </div>
 	</div>
@@ -22,10 +27,10 @@
 <script>
 	$('#role-create').validate({
         rules: {
-
+            name: 'required'
         },
         messages: {
-            
+            name: 'Please enter a Name.'
         }
     });
 </script>

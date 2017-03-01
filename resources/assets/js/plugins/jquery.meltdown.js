@@ -6,7 +6,7 @@
  * Requires: jQuery v1.7.2 or later (1.9.1 recommended)
  */
 
-import marked from 'marked';
+import marked from './marked';
 
 (function ($, window, document, undefined) {
     'use strict';
