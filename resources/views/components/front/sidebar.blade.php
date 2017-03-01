@@ -120,11 +120,13 @@
 		    					@endif
 		    				</ul>
 		    			</li>
+		    			@if(auth()->user()->can('access_admin'))
 		    			<li class="bold">
 		    				<a href="{{ route('admin.pages.index') }}" class="waves-effect waves-light">
 		    					<i class="material-icons">insert_drive_file</i>
                             	{{ trans('front/sidebar.pages') }}
 		    				</a>
 		    			</li>
+		    			@endif
 					</ul>
 				</div>

@@ -12,6 +12,7 @@
 
 namespace Empress\Controllers\Auth;
 
+use Empress\Models\Role;
 use Empress\Models\User;
 use Empress\Base\Controller;
 use Illuminate\Http\Request;
@@ -83,6 +84,10 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
+
+        $role = Role::where('name', 'customer')->first();
+
+        $user->roles()->sync([$role->id]);
 
         flash(trans('auth.register.success-message'), 'success');
 

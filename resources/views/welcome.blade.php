@@ -47,7 +47,7 @@
 			                    <a href="https://laravel.com/docs/master" target="_blank">Laravel</a>
 			                    <a href="https://vuejs.org/v2/guide" target="_blank">Vue</a>
 			                    <a href="http://materializecss.com" target="_blank">Materialize</a>
-			                    <a href="https://github.com/19peaches/empress" target="_blank">GitHub</a>
+			                    <a href="https://reso.lution.io/periapt/empress" target="_blank">Git</a>
 			                </div>
 			            </div>
 		            </div>

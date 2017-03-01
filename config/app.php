@@ -181,6 +181,7 @@ return [
         Empress\Flash\FlashServiceProvider::class,
         Empress\Generator\GeneratorServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
 
         /*
          * Application Service Providers...
