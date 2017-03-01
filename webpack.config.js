@@ -71,6 +71,15 @@ module.exports.output = Mix.output();
  |
  */
 
+let vueExtractTextPlugin = false;
+
+if (Mix.options.extractVueStyles) {
+    vueExtractTextPlugin = Mix.vueExtractTextPlugin();
+
+    module.exports.plugins = (module.exports.plugins || []).concat(vueExtractTextPlugin);
+}
+
+
 module.exports.module = {
     rules: [
         {
@@ -79,27 +88,30 @@ module.exports.module = {
             options: {
                 loaders: Mix.options.extractVueStyles ? {
                     js: 'babel-loader' + Mix.babelConfig(),
-                    scss: plugins.ExtractTextPlugin.extract({
+                    scss: vueExtractTextPlugin.extract({
                         use: 'css-loader!sass-loader',
                         fallback: 'vue-style-loader'
                     }),
-                    sass: plugins.ExtractTextPlugin.extract({
+                    sass: vueExtractTextPlugin.extract({
                         use: 'css-loader!sass-loader?indentedSyntax',
                         fallback: 'vue-style-loader'
                     }),
-                    css: plugins.ExtractTextPlugin.extract({
+                    stylus: vueExtractTextPlugin.extract({
+                        use: 'css-loader!stylus-loader?paths[]=node_modules',
+                        fallback: 'vue-style-loader'
+                    }),
+                    css: vueExtractTextPlugin.extract({
                         use: 'css-loader',
                         fallback: 'vue-style-loader'
                     })
                 }: {
                     js: 'babel-loader' + Mix.babelConfig(),
                     scss: 'vue-style-loader!css-loader!sass-loader',
-                    sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                    sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+                    stylus: 'vue-style-loader!css-loader!stylus-loader?paths[]=node_modules'
                 },
 
-                postcss: [
-                    require('autoprefixer')
-                ]
+                postcss: Mix.options.postCss
             }
         },
 
@@ -115,16 +127,22 @@ module.exports.module = {
         },
 
         {
+            test: /\.s[ac]ss$/,
+            include: /node_modules/,
+            loaders: ['style-loader', 'css-loader', 'sass-loader']
+        },
+
+        {
             test: /\.html$/,
             loaders: ['html-loader']
         },
 
         {
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpe?g|gif)$/,
             loader: 'file-loader',
             options: {
                 name: 'images/[name].[ext]?[hash]',
-                publicPath: '/'
+                publicPath: Mix.resourceRoot
             }
         },
 
@@ -133,7 +151,16 @@ module.exports.module = {
             loader: 'file-loader',
             options: {
                 name: 'fonts/[name].[ext]?[hash]',
-                publicPath: '/'
+                publicPath: Mix.resourceRoot
+            }
+        },
+
+        {
+            test: /\.(cur|ani)$/,
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]?[hash]',
+                publicPath: Mix.resourceRoot
             }
         }
     ]
@@ -141,48 +168,12 @@ module.exports.module = {
 
 
 if (Mix.preprocessors) {
-    Mix.preprocessors.forEach(toCompile => {
-        let extractPlugin = new plugins.ExtractTextPlugin(
-            Mix.cssOutput(toCompile)
-        );
+    Mix.preprocessors.forEach(preprocessor => {
+        module.exports.module.rules.push(preprocessor.rules());
 
-        let sourceMap = Mix.sourcemaps ? '?sourceMap' : '';
-
-        module.exports.module.rules.push({
-            test: new RegExp(toCompile.src.path.replace(/\\/g, '\\\\') + '$'),
-            use: extractPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                    { loader: 'css-loader' + sourceMap },
-                    { loader: 'postcss-loader' + sourceMap }
-                ].concat(
-                    toCompile.type == 'sass' ? [
-                        { loader: 'resolve-url-loader' + sourceMap },
-                        {
-                            loader: 'sass-loader',
-                            options: Object.assign({
-                                precision: 8,
-                                outputStyle: 'expanded'
-                            }, toCompile.pluginOptions, { sourceMap: true })
-                        }
-                    ] : [
-                        {
-                            loader: 'less-loader' + sourceMap,
-                            options: toCompile.pluginOptions
-                        }
-                    ]
-                )
-            })
-        });
-
-        module.exports.plugins = (module.exports.plugins || []).concat(extractPlugin);
+        module.exports.plugins = (module.exports.plugins || []).concat(preprocessor.extractPlugin);
     });
-} else if (Mix.options.extractVueStyles) {
-    module.exports.plugins = (module.exports.plugins || []).concat(
-        new plugins.ExtractTextPlugin(path.join(Mix.js.base, 'vue-styles.css'))
-    );
 }
-
 
 
 /*
@@ -224,6 +215,8 @@ module.exports.stats = {
     children: false,
     errors: false
 };
+
+process.noDeprecation = true;
 
 module.exports.performance = { hints: false };
 
@@ -295,9 +288,7 @@ module.exports.plugins = (module.exports.plugins || []).concat([
     new webpack.LoaderOptionsPlugin({
         minimize: Mix.inProduction,
         options: {
-            postcss: [
-                require('autoprefixer')
-            ],
+            postcss: Mix.options.postCss,
             context: __dirname,
             output: { path: './' }
         }
@@ -307,27 +298,24 @@ module.exports.plugins = (module.exports.plugins || []).concat([
 
 if (Mix.browserSync) {
     module.exports.plugins.push(
-        new plugins.BrowserSyncPlugin(Object.assign({
-            host: 'localhost',
-            port: 3000,
-            proxy: 'app.dev',
-            files: [
-                'app/**/*.php',
-                'resources/views/**/*.php',
-                'public/mix-manifest.json',
-                'public/css/**/*.css',
-                'public/js/**/*.js'
-            ]
-        }, Mix.browserSync))
+        new plugins.BrowserSyncPlugin(
+            Object.assign({
+                host: 'localhost',
+                port: 3000,
+                proxy: 'app.dev',
+                files: [
+                    'app/**/*.php',
+                    'resources/views/**/*.php',
+                    'public/js/**/*.js',
+                    'public/css/**/*.css'
+                ]
+            }, Mix.browserSync),
+            {
+                reload: false
+            }
+        )
     );
 }
-
-
-module.exports.plugins.push(
-    new plugins.WebpackOnBuildPlugin(
-        stats => Mix.events.fire('build', stats)
-    )
-);
 
 
 if (Mix.notifications) {
@@ -363,22 +351,23 @@ if (Mix.extract) {
 
 
 if (Mix.inProduction) {
-    module.exports.plugins = module.exports.plugins.concat([
+    module.exports.plugins.push(
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
             }
         }),
 
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            compress: {
-                warnings: false,
-                drop_console: true
-            }
-        })
-    ]);
+        new webpack.optimize.UglifyJsPlugin(Mix.options.uglify)
+    );
 }
+
+
+module.exports.plugins.push(
+    new plugins.WebpackOnBuildPlugin(
+        stats => Mix.events.fire('build', stats)
+    )
+);
 
 
 /*
