@@ -48,19 +48,6 @@
 
 @section('scripts')
 <script>
-    $('#login-form').validate({
-        rules: {
-            login: 'required',
-            password: 'required'
-        },
-        messages: {
-            login: {
-                required: 'Username or Email is required.',
-            },
-            password: {
-                required: 'Password is required.'
-            }
-        }
-    });
+    Validators.login();
 </script>
 @endsection

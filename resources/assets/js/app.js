@@ -35,16 +35,9 @@ require('./bootstrap');
 
 import Example from './components/Example';
 import Welcome from './components/Welcome';
-//import Editor  from './components/Editor';
-
-window.hljs = require('highlight.js');
-
-require('./plugins/rangyinputs-jquery.min.js');
-require('./plugins/jquery.meltdown.js');
 
 Vue.component('example', Example);
 Vue.component('welcome', Welcome);
-//Vue.component('editor',  Editor);
 
 const app = new Vue({
     el: '#app'
@@ -73,6 +66,13 @@ const app = new Vue({
         window.Modal = $('.modal').modal();
 
         Materialize.updateTextFields();
+
+        // Meltdown markdown editor
+        $('textarea.editor').meltdown();
+
+        $('.meltdown_preview pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
 
     });
 })(jQuery);

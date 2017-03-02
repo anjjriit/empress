@@ -37,19 +37,6 @@
 
 @section('scripts')
 <script>
-    $('#forgot-form').validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            }
-        },
-        messages: {
-            email: {
-                required: 'Your email address is required.',
-                email: 'Must be a valid email address.'
-            }
-        }
-    });
+    Validators.email();
 </script>
 @endsection

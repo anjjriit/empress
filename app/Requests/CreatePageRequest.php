@@ -14,6 +14,7 @@ namespace Empress\Requests;
 
 use Empress\Models\Page;
 use Empress\Base\Request;
+use Illuminate\Validation\Rule;
 
 class CreatePageRequest extends Request 
 {

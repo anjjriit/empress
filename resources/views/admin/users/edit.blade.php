@@ -25,13 +25,6 @@
 
 @section('scripts')
 <script>
-	$('#user-edit').validate({
-		rules: {
-
-		},
-		messages: {
-
-		}
-	});
+	Validators.user($('#user-edit'));
 </script>
 @endsection

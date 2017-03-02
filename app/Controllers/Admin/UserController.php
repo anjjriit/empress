@@ -15,6 +15,7 @@ namespace Empress\Controllers\Admin;
 use Empress\Models\Role;
 use Empress\Models\User;
 use Empress\Base\Controller;
+use Illuminate\Auth\Events\Registered;
 use Empress\Requests\CreateUserRequest;
 use Empress\Requests\UpdateUserRequest;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -61,11 +62,18 @@ class UserController extends Controller
      */
     public function store(CreateUserRequest $request)
     {
-        $user = User::create($request->all());
+        $user = User::create([
+            'username' => $request->username,
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'password' => bcrypt($request->username)
+        ]);
 
         $user->roles()->sync($request->roles);
 
-        flash('User saved successfully.', 'success');
+        event(new Registered($user));
+
+        flash('User created successfully.', 'success');
 
         return redirect(route('admin.users.index'));
     }

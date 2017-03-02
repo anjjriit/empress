@@ -25,13 +25,6 @@
 
 @section('scripts')
 <script>
-	$('#role-edit').validate({
-		rules: {
-            name: 'required'
-        },
-        messages: {
-            name: 'Please enter a Name.'
-        }
-	});
+	Validators.role($('#role-edit'));
 </script>
 @endsection

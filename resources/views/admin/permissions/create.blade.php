@@ -25,13 +25,6 @@
 
 @section('scripts')
 <script>
-	$('#permission-create').validate({
-        rules: {
-            name: 'required'
-        },
-        messages: {
-            name: 'Please enter a Name.'
-        }
-    });
+	Validators.permission($('#permission-create'));
 </script>
 @endsection

@@ -25,15 +25,6 @@
 
 @section('scripts')
 <script>
-	$('#permission-edit').validate({
-		rules: {
-            name: 'required',
-            roles: 'required'
-        },
-        messages: {
-            name: 'Please enter a Name.',
-            roles: 'Please select at least one Role.'
-        }
-	});
+	Validators.permission($('#permission-edit'));
 </script>
 @endsection

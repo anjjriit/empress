@@ -47,36 +47,6 @@
 
 @section('scripts')
 <script>
-    $('#reset-form').validate({
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
-                minlength: 6
-            },
-            password_confirmation: {
-                required: true,
-                equalTo: '#password'
-            }
-
-        },
-        messages: {
-            email: {
-                required: 'Your email address is required.',
-                email: 'Must be a valid email address.'
-            },
-            password: {
-                required: 'A new password is required.',
-                minlength: 'Password must be at least 6 characters.'
-            },
-            password_confirmation: {
-                required: 'Please confirm your password.',
-                equalTo: 'Your passwords must match.'
-            }
-        }
-    });
+    Validators.password();
 </script>
 @endsection

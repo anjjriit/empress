@@ -19,7 +19,12 @@ window.axios.defaults.headers.common = {
 
 window.Notifier = require('./plugins/Notifier');
 
-require('./plugins/ValidatorDefaults');
+window.Validators = require('./plugins/Validators');
+
+window.hljs = require('highlight.js');
+
+require('./plugins/rangyinputs-jquery.min.js');
+require('./plugins/jquery.meltdown.js');
 
 /*
 |--------------------------------------------------------------------------

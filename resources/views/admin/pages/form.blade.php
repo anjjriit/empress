@@ -10,7 +10,7 @@
     </div>
 
     <div class="input-field col s12">
-        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'rows' => '12', 'class' => 'editor', 'required']) !!}
-        {!! Form::label('content', 'Content', ['for' => 'content']) !!}
+        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'class' => 'editor', 'required', 'autofocus']) !!}
+        {!! Form::label('content', 'Content (use Markdown for pages)', ['for' => 'content', 'class' => 'active']) !!}
     </div>
 </div>

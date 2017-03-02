@@ -51,7 +51,8 @@ class Page extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'string',
-        'slug'  => 'string'
+        'title'   => 'required|string',
+        'slug'    => 'required|string',
+        'content' => 'required|string'
     ];
 }

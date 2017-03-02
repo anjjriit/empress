@@ -14,6 +14,7 @@ namespace Empress\Requests;
 
 use Empress\Models\User;
 use Empress\Base\Request;
+use Illuminate\Validation\Rule;
 
 class UpdateUserRequest extends Request 
 {
@@ -35,11 +36,16 @@ class UpdateUserRequest extends Request
 	public function rules()
 	{
 		return [
-			'username'         => 'required|string',
-			'name'             => 'required|string',
-			'email'            => 'required|string|max:180',
-			'password'         => 'string',
-			'activation_token' => 'string'
+			'username' => [
+				'required', 'string', 'max:180',
+				Rule::unique('users')->ignore($this->user->id),
+			],
+			'name'     => 'required|string',
+			'email'    => [
+				'required','string','max:180',
+				Rule::unique('users')->ignore($this->user->id),
+			],
+			'roles'    => 'required|array',
 	    ];
 	}
 }

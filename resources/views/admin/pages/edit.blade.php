@@ -25,13 +25,6 @@
 
 @section('scripts')
 <script>
-	$(document).ready(function() {
-		$('.editor').meltdown();
-	});
-
-	$('.meltdown_preview pre code').each(function(i, block) {
-	    hljs.highlightBlock(block);
-	});
-
+    Validators.page($('#page-edit'));
 </script>
 @endsection

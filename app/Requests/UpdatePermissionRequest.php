@@ -14,6 +14,7 @@ namespace Empress\Requests;
 
 use Empress\Base\Request;
 use Empress\Models\Permission;
+use Illuminate\Validation\Rule;
 
 class UpdatePermissionRequest extends Request 
 {

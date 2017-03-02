@@ -14,6 +14,7 @@ namespace Empress\Requests;
 
 use Empress\Models\User;
 use Empress\Base\Request;
+use Illuminate\Validation\Rule;
 
 class CreateUserRequest extends Request 
 {
@@ -35,11 +36,10 @@ class CreateUserRequest extends Request
 	public function rules()
 	{
 		return [
-			'username'         => 'required|string',
-			'name'             => 'required|string',
-			'email'            => 'required|string|max:180',
-			'password'         => 'string',
-			'activation_token' => 'string'
+			'username' => 'required|string|max:180|unique:users,username',
+			'name'     => 'required|string',
+			'email'    => 'required|string|max:180|unique:users,email',
+			'roles'    => 'required|array',
 	    ];
 	}
 }

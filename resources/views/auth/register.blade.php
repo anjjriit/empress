@@ -56,41 +56,6 @@
 
 @section('scripts')
 <script>
-    $('#register-form').validate({
-        rules: {
-            username: 'required',
-            name: 'required',
-            email: {
-                required: true,
-                email: true,
-                maxlength: 180
-            },
-            password: {
-                required: true,
-                minlength: 6
-            },
-            password_confirmation: {
-                required: true,
-                equalTo: '#password'
-            }
-        },
-        messages: {
-            username: 'Please create a username.',
-            name: 'Please enter your name.',
-            email: {
-                required: 'Please enter your email address.',
-                email: 'Must be a valid email address.',
-                maxlength: 'Max length for an email is 180 characters.'
-            },
-            password: {
-                required: 'Please create a password.',
-                minlength: 'Password must be at least 6 characters.'
-            },
-            password_confirmation: {
-                required: 'Please confirm your password.',
-                equalTo: 'Your passwords must match.'
-            }
-        }
-    });
+    Validators.register();
 </script>
 @endsection
