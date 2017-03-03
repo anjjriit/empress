@@ -44,7 +44,17 @@ class RoleUserTableSeeder extends Seeder
             ),
             4 => 
             array (
+                'user_id' => 3,
+                'role_id' => 4,
+            ),
+            5 => 
+            array (
                 'user_id' => 1,
+                'role_id' => 5,
+            ),
+            6 => 
+            array (
+                'user_id' => 3,
                 'role_id' => 5,
             ),
         ));        

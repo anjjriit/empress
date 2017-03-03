@@ -14,6 +14,7 @@ namespace Empress\Controllers\Auth;
 
 use Empress\Base\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Validation\Validator;
 use Empress\Controllers\Traits\ActivatesUsers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -66,5 +67,34 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         return redirect('/');
+    }
+    
+    /**
+     * Get the failed login response instance.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [$this->username() => trans('auth.failed')];
+
+        if ($request->expectsJson()) {
+            return response()->json($errors, 422);
+        }
+
+        $message = '<ul>';
+        
+        foreach($errors as $key => $value) {
+            $message .= '<li>' . $value . '</li>';
+        }
+        
+        $message .= '</ul>';
+
+        flash($message, 'Correct These Errors', 'danger');
+
+        return redirect()->back()
+            ->withInput($request->only($this->username(), 'remember'))
+            ->withErrors($errors);
     }
 }
