@@ -216,8 +216,6 @@ module.exports.stats = {
     errors: false
 };
 
-process.noDeprecation = true;
-
 module.exports.performance = { hints: false };
 
 
