@@ -102,18 +102,24 @@
 									</a>
 									<div class="collapsible-body">
 										<ul>
+											@if(auth()->user()->can('access_roles'))
 											<li>
 												<a href="{{ route('admin.roles.index') }}" 
 												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.roles') }}</a>
 											</li>
+											@endif
+											@if(auth()->user()->can('access_permissions'))
 											<li>
 												<a href="{{ route('admin.permissions.index') }}" 
 												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.permissions') }}</a>
 											</li>
+											@endif
+											@if(auth()->user()->can('access_users'))
 											<li>
 												<a href="{{ route('admin.users.index') }}" 
 												   class="waves-effect waves-light">{{ trans('front/sidebar.personnel.users') }}</a>
 											</li>
+											@endif
 										</ul>
 									</div>
 		    					</li>

@@ -74,5 +74,8 @@ const app = new Vue({
             hljs.highlightBlock(block);
         });
 
+        $(document).on('click', 'a.disabled', function(e) {
+            e.preventDefault();
+        });
     });
 })(jQuery);

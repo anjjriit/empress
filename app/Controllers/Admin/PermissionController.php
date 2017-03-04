@@ -28,7 +28,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        bcs('Permissions');
+        bcs(trans('admin/permissions.title'));
 
         $permissions = Permission::paginate(10);
 
@@ -43,8 +43,8 @@ class PermissionController extends Controller
     public function create(Role $role)
     {
         bcs([
-            'Permissions' => 'admin.permissions.index',
-            'Create Permission' => null
+            trans('admin/permissions.title') => 'admin.permissions.index',
+            trans('admin/permissions.add') => null
         ]);
 
         $data['roles']   = $role->pluck('display_name', 'id');
@@ -65,7 +65,7 @@ class PermissionController extends Controller
 
         $permission->roles()->sync($request->roles);
 
-        flash('Permission saved successfully.', 'success');
+        flash(trans('admin/permissions.action', ['type' => 'saved']), 'success');
 
         return redirect(route('admin.permissions.index'));
     }
@@ -79,8 +79,8 @@ class PermissionController extends Controller
     public function edit(Permission $permission, Role $role)
     {
         bcs([
-            'Permissions' => 'admin.permissions.index',
-            $permission->display_name => null
+            trans('admin/permissions.title') => 'admin.permissions.index',
+            trans('admin/permissions.edit', ['name' => $permission->display_name]) => null
         ]);
 
         $data['roles']      = $role->pluck('display_name', 'id');
@@ -105,7 +105,7 @@ class PermissionController extends Controller
 
         $permission->roles()->sync($request->roles);
 
-        flash('Permission updated successfully.', 'success');
+        flash(trans('admin/permissions.action', ['type' => 'updated']), 'success');
 
         return redirect(route('admin.permissions.index'));
     }
@@ -120,7 +120,7 @@ class PermissionController extends Controller
     {
         $permission->delete();
 
-        flash('Permission deleted successfully.', 'success');
+        flash(trans('admin/permissions.action', ['type' => 'deleted']), 'success');
 
         return redirect(route('admin.permissions.index'));
     }

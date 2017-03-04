@@ -27,7 +27,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        bcs('Roles');
+        bcs(trans('admin/roles.title'));
 
         $roles = Role::paginate(10);
 
@@ -42,8 +42,8 @@ class RoleController extends Controller
     public function create()
     {
         bcs([
-            'Roles' => 'admin.roles.index',
-            'Create Role' => null
+            trans('admin/roles.title') => 'admin.roles.index',
+            trans('admin/roles.add') => null
         ]);
 
         return view('admin.roles.create');
@@ -59,7 +59,7 @@ class RoleController extends Controller
     {
         Role::create($request->all());
 
-        flash('Role saved successfully.', 'success');
+        flash(trans('admin/roles.action', ['type' => 'success']), 'success');
 
         return redirect(route('admin.roles.index'));
     }
@@ -73,8 +73,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         bcs([
-            'Roles' => 'admin.roles.index',
-            $role->display_name => null
+            trans('admin/roles.title') => 'admin.roles.index',
+            trans('admin/roles.edit', ['name' => $role->display_name]) => null
         ]);
 
         return view('admin.roles.edit')->with(compact('role'));
@@ -93,7 +93,7 @@ class RoleController extends Controller
 
         $role->save();
 
-        flash('Role updated successfully.', 'success');
+        flash(trans('admin/roles.action', ['type' => 'update']), 'success');
 
         return redirect(route('admin.roles.index'));
     }
@@ -108,7 +108,7 @@ class RoleController extends Controller
     {
         $role->delete();
 
-        flash('Role deleted successfully.', 'success');
+        flash(trans('admin/roles.action', ['type' => 'deleted']), 'success');
 
         return redirect(route('admin.roles.index'));
     }

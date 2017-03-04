@@ -25,6 +25,10 @@ class UpdateUserRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('edit_users')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

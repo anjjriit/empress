@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        bcs('Users');
+        bcs(trans('admin/users.title'));
 
         $users = User::paginate(10);
 
@@ -44,8 +44,8 @@ class UserController extends Controller
     public function create(Role $role)
     {
         bcs([
-            'Users' => 'admin.users.index',
-            'Create User' => null
+            trans('admin/users.title') => 'admin.users.index',
+            trans('admin/users.add') => null
         ]);
 
         $data['roles']   = $role->pluck('display_name', 'id');
@@ -73,7 +73,7 @@ class UserController extends Controller
 
         event(new Registered($user));
 
-        flash('User created successfully.', 'success');
+        flash(trans('admin/users.action', ['type' => 'success']), 'success');
 
         return redirect(route('admin.users.index'));
     }
@@ -87,8 +87,8 @@ class UserController extends Controller
     public function edit(User $user, Role $role)
     {
         bcs([
-            'Users' => 'admin.users.index',
-            $user->name => null
+            trans('admin/users.title') => 'admin.users.index',
+            trans('admin/users.edit', ['name' => $user->name]) => null
         ]);
 
         $data['roles']   = $role->pluck('display_name', 'id');
@@ -113,7 +113,7 @@ class UserController extends Controller
 
         $user->roles()->sync($request->roles);
 
-        flash('User updated successfully.', 'success');
+        flash(trans('admin/users.action', ['type' => 'updated']), 'success');
 
         return redirect(route('admin.users.index'));
     }
@@ -128,7 +128,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        flash('User deleted successfully.', 'success');
+        flash(trans('admin/users.action', ['type' => 'deleted']), 'success');
 
         return redirect(route('admin.users.index'));
     }

@@ -25,6 +25,10 @@ class CreatePageRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('create_pages')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

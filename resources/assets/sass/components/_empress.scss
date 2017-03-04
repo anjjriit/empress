@@ -98,6 +98,45 @@ a.button-collapse.top-nav {
 a.button-collapse.top-nav i {
     font-size: 32px;
 }
+a.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.btn.disabled, 
+.disabled.btn-large, 
+.btn-floating.disabled, 
+.btn-large.disabled, 
+.btn-flat.disabled, 
+.btn:disabled, 
+.btn-large:disabled, 
+.btn-floating:disabled, 
+.btn-large:disabled, 
+.btn-flat:disabled, 
+.btn[disabled], 
+[disabled].btn-large, 
+.btn-floating[disabled], 
+.btn-large[disabled], 
+.btn-flat[disabled] {
+    pointer-events: auto;
+    cursor: not-allowed;
+}
+.pagination li a {
+    margin-right: 0 !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+    text-transform: none !important;
+}
+.pagination li.disabled a {
+    cursor: not-allowed;
+    color: #999 !important;
+}
+.pagination li a {
+    color: #444 !important;
+    text-align: center;
+}
+.pagination li.active a {
+    color: #fff !important;
+}
 .side-nav {
     background-color: #661905;
     background-repeat: no-repeat;

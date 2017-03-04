@@ -25,6 +25,10 @@ class CreatePermissionRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('create_permissions')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

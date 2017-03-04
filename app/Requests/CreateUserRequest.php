@@ -25,6 +25,10 @@ class CreateUserRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('create_users')) {
+			return abort(403);
+		}
+		
 		return true;
 	}
 

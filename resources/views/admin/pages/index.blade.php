@@ -1,5 +1,5 @@
 @extends('layouts.front.app')
-@section('title', 'Pages')
+@section('title', trans('admin/pages.title'))
 
 @section('content')
 <div class="container">
@@ -7,14 +7,14 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Pages</span>
-                    {!! link_to_route('admin.pages.create', 'Add New', [], ['class' => 'btn light-blue lighten-2 waves-effect waves-light right']) !!}
+                    <span class="card-title">{{ trans('admin/pages.title') }}</span>
+                    {!! link_to_route('admin.pages.create', trans('admin/pages.add'), [], ['class' => 'btn light-blue lighten-2 waves-effect waves-light right' . (! auth()->user()->can('create_pages') ? ' disabled' : '')]) !!}
                     <hr>
                     <table class="responsive">
                         <thead>
-                            <th data-field="title">Title</th>
-                            <th data-field="slug">Slug</th>
-                            <th class="right">Action</th>
+                            <th data-field="title">{{ trans('admin/pages.col.title') }}</th>
+                            <th data-field="slug">{{ trans('admin/pages.col.slug') }}</th>
+                            <th class="right">{{ trans('common.action') }}</th>
                         </thead>
                         <tbody>
                             @if(! $pages->isEmpty())
@@ -23,10 +23,10 @@
                                 <td>{{ $page->title }}</td>
                                 <td>{{ $page->slug }}</td>
                                 <td class="right">
-                                    <a href="{{ route('admin.pages.edit', ['page' => $page->id]) }}" class="green-text text-lighten-1" title="Edit">
+                                    <a href="{{ route('admin.pages.edit', ['page' => $page->id]) }}" class="green-text text-lighten-1{{ ! auth()->user()->can('edit_pages') ? ' disabled' : ''}}" title="{{ trans('common.edit') }}">
                                         <i class="material-icons">create</i>
                                     </a>
-                                    <a href="{{ route('admin.pages.destroy', ['page' => $page->id]) }}" class="red-text text-lighten-2" title="Delete">
+                                    <a href="{{ route('admin.pages.destroy', ['page' => $page->id]) }}" class="red-text text-lighten-2{{ ! auth()->user()->can('delete_pages') ? ' disabled' : ''}}" title="{{ trans('common.delete') }}">
                                        <i class="material-icons">delete</i> 
                                     </a>
                                 </td>
@@ -34,7 +34,7 @@
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="3" class="center">No Pages found.</td>
+                                <td colspan="3" class="center">{{ trans('admin/pages.not-found') }}</td>
                             </tr>
                             @endif
                         </tbody>

@@ -25,6 +25,10 @@ class CreateRoleRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('create_roles')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

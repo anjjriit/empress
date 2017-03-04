@@ -1,3 +1,3 @@
 <div class="card-action">
-    {!! $records->render() !!}
+    {!! $records->links() !!}
 </div>

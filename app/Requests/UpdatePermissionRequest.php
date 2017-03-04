@@ -25,6 +25,10 @@ class UpdatePermissionRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('edit_permissions')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

@@ -27,7 +27,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        bcs('Pages');
+        bcs(trans('admin/pages.title'));
 
         $pages = Page::paginate(10);
 
@@ -42,8 +42,8 @@ class PageController extends Controller
     public function create()
     {
         bcs([
-            'Pages' => 'admin.pages.index',
-            'Create Page' => null
+            trans('admin/pages.title') => 'admin.pages.index',
+            trans('admin/pages.add') => null
         ]);
 
         return view('admin.pages.create');
@@ -59,7 +59,7 @@ class PageController extends Controller
     {
         Page::create($request->all());
 
-        flash('Page saved successfully.', 'success');
+        flash(trans('admin/pages.action', ['type' => 'saved']), 'success');
 
         return redirect(route('admin.pages.index'));
     }
@@ -73,8 +73,8 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         bcs([
-            'Pages' => 'admin.pages.index',
-            $page->title => null
+            trans('admin/pages.title') => 'admin.pages.index',
+            trans('admin/pages.edit', ['name' => $page->title]) => null
         ]);
         
         return view('admin.pages.edit')->with(compact('page'));
@@ -94,7 +94,7 @@ class PageController extends Controller
 
         $page->save();
 
-        flash('Page updated successfully.', 'success');
+        flash(trans('admin/pages.action', ['type' => 'updated']), 'success');
 
         return redirect(route('admin.pages.index'));
     }
@@ -109,7 +109,7 @@ class PageController extends Controller
     {
         $page->delete();
 
-        flash('Page deleted successfully.', 'success');
+        flash(trans('admin/pages.action', ['type' => 'deleted']), 'success');
 
         return redirect(route('admin.pages.index'));
     }

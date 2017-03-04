@@ -25,6 +25,10 @@ class UpdateRoleRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('edit_roles')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 

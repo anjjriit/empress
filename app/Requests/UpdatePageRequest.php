@@ -25,6 +25,10 @@ class UpdatePageRequest extends Request
 	 */
 	public function authorize()
 	{
+		if (! $this->user()->can('edit_pages')) {
+			return abort(403);
+		}
+
 		return true;
 	}
 
