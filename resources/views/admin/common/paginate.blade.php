@@ -1,3 +1,3 @@
 <div class="card-action">
-    {!! $records->links() !!}
+    {!! $records->links('admin.common.pager') !!}
 </div>
