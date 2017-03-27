@@ -11,6 +11,7 @@
  */
 
 Route::group(['namespace' => 'Auth'], function() {
+	
 	Route::get('/login', [
 		'as'   => 'auth.login.show',
 		'uses' => 'LoginController@showLoginForm'
@@ -70,19 +71,39 @@ Route::get('/', [
 
 Route::group(['namespace' => 'Front'], function() {
 
-	Route::group(['middleware' => 'auth'], function() {
+	Route::group(['middleware' => ['auth', 'activated']], function() {
+		
 		Route::get('/dashboard', [
 			'as'   => 'front.dashboard.index',
 			'uses' => 'DashboardController@index',
+		]);
+
+		Route::get('/account/{account}/settings', [
+			'as'   => 'front.account.settings',
+			'uses' => 'AccountController@settings'
+		]);
+
+		Route::post('/account/{account}/settings', [
+			'as'   => 'front.account.settings.update',
+			'uses' => 'AccountController@updateSettings'
+		]);
+
+		Route::get('/account/{account}/password', [
+			'as'   => 'front.account.password',
+			'uses' => 'AccountController@password'
+		]);
+
+		Route::post('/account/{account}/password', [
+			'as'   => 'front.account.password.update',
+			'uses' => 'AccountController@updatePasswords'
 		]);
 	});
 });
 
 Route::group(['namespace' => 'Admin'], function() {
 
-	Route::group(['middleware' => 'auth'], function() {
-		Route::resource('pages', 'PageController');
-
+	Route::group(['middleware' => ['auth', 'activated']], function() {
+		
 		Route::get('/admin/pages', [
 			'as'         => 'admin.pages.index',
 			'uses'       => 'PageController@index',

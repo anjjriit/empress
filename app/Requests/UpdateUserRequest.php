@@ -42,12 +42,12 @@ class UpdateUserRequest extends Request
 		return [
 			'username' => [
 				'required', 'string', 'max:180',
-				Rule::unique('users')->ignore($this->user->id),
+				Rule::unique('users')->ignore($this->user()->id),
 			],
 			'name'     => 'required|string',
 			'email'    => [
 				'required','string','max:180',
-				Rule::unique('users')->ignore($this->user->id),
+				Rule::unique('users')->ignore($this->user()->id),
 			],
 			'roles'    => 'required|array',
 	    ];

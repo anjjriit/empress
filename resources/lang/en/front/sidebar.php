@@ -13,6 +13,7 @@
 return [
 	'mine'      => 'My Profile',
 	'edit'      => 'Edit Profile',
+	'auth'      => 'Authentication',
 	'settings'  => 'Settings',
 	'logout'    => 'Logout',
 	'dashboard' => 'Dashboard',

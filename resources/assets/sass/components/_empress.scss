@@ -143,7 +143,7 @@ a.disabled {
     background-size: cover;
     background-position: center center;
 
-    a {
+    li > a {
         color: rgba(245,245,245, 0.7);
 
         &.active {
@@ -268,6 +268,9 @@ a.disabled {
     position: absolute;
     top: -14px;
 }
+/*#editormd textarea {
+    display: none;
+}*/
 /*#editor {
     margin: 0;
     height: 100%;

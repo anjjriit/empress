@@ -69,5 +69,6 @@ class Kernel extends HttpKernel
         'role'       => \Empress\Middleware\Role::class,
         'permission' => \Empress\Middleware\Permission::class,
         'ability'    => \Empress\Middleware\Ability::class,
+        'activated'  => \Empress\Middleware\UserActivated::class,
     ];
 }

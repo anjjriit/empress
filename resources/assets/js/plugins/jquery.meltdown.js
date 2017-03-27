@@ -85,7 +85,7 @@ import marked from './marked';
             openPreview: true,
 
             // A CSS height or "editorHeight" or "auto" (to let the height adjust to the content).
-            previewHeight: "100vh",
+            previewHeight: "60vh",
 
             // If true, when the preview is toggled it will (un)collapse resulting in the total height of the wrap to change.
             // Set this to false if you want the editor to expand/shrinkin the opposite way of the preview.
@@ -577,6 +577,11 @@ import marked from './marked';
                 var previewNode = this.preview[0],
                     scrolledToBottom = previewNode.scrollHeight - previewNode.scrollTop === previewNode.clientHeight;
                 this.preview.html(this.parser(text));
+                
+                var blocks = this.preview.find('.hljs');
+
+                hljs.highlightBlock(blocks);
+
                 if (scrolledToBottom) {
                     previewNode.scrollTop = previewNode.scrollHeight;
                 }

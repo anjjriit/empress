@@ -11,9 +11,10 @@
  */
 
 return [
-	'save'   => 'Save',
-	'cancel' => 'Cancel',
-	'action' => 'Action',
-	'edit'   => 'Edit',
-	'delete' => 'Delete',
+	'save'          => 'Save',
+	'cancel'        => 'Cancel',
+	'action'        => 'Action',
+	'edit'          => 'Edit',
+	'delete'        => 'Delete',
+	'not-activated' => 'You need to activate your account before you can log in.',
 ];

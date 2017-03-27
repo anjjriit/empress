@@ -21,10 +21,12 @@ window.Notifier = require('./plugins/Notifier');
 
 window.Validators = require('./plugins/Validators');
 
-window.hljs = require('highlight.js');
+//window.editormd = require('./editor/editormd');
 
-require('./plugins/rangyinputs-jquery.min.js');
-require('./plugins/jquery.meltdown.js');
+//window.hljs = require('highlight.js');
+
+//require('./plugins/rangyinputs-jquery.min.js');
+//require('./plugins/jquery.meltdown.js');
 
 /*
 |--------------------------------------------------------------------------

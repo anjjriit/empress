@@ -66,13 +66,13 @@ const app = new Vue({
         window.Modal = $('.modal').modal();
 
         Materialize.updateTextFields();
-
+        
         // Meltdown markdown editor
-        $('textarea.editor').meltdown();
+        //$('textarea.editor').meltdown();
 
-        $('.meltdown_preview pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
+        // $('.meltdown_preview pre code').each(function(i, block) {
+        //     hljs.highlightBlock(block);
+        // });
 
         $(document).on('click', 'a.disabled', function(e) {
             e.preventDefault();

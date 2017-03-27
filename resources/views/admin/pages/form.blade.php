@@ -9,8 +9,8 @@
         {!! Form::label('slug', trans('admin/pages.form.slug'), ['for' => 'slug']) !!}
     </div>
 
-    <div class="input-field col s12">
-        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'class' => 'editor', 'required', 'autofocus']) !!}
+    <div class="input-field col s12" id="editor">
+        {!! Form::textarea('content', null, ['id' => 'content', 'aria-required' => 'true', 'required', 'autofocus']) !!}
         {!! Form::label('content', trans('admin/pages.form.content'), ['for' => 'content', 'class' => 'active']) !!}
     </div>
 </div>

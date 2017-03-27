@@ -25,7 +25,10 @@
 													<a href="#" class="waves-effect waves-light">{{ trans('front/sidebar.edit') }}</a>
 												</li>
 												<li>
-													<a href="#" class="waves-effect waves-light">{{ trans('front/sidebar.settings') }}</a>
+													<a href="{{ route('front.account.password', ['account' => auth()->user()->username]) }}" class="waves-effect waves-light">{{ trans('front/sidebar.auth') }}</a>
+												</li>
+												<li>
+													<a href="{{ route('front.account.settings', ['account' => auth()->user()->username]) }}" class="waves-effect waves-light">{{ trans('front/sidebar.settings') }}</a>
 												</li>
 												<li>
 													<a href="{{ route('auth.logout') }}" class="waves-effect waves-light">{{ trans('front/sidebar.logout') }}</a>

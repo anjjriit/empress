@@ -67,11 +67,11 @@ Code Block w/language:
 ```php
 public function store(CreatePageRequest $request)
 {
-Page::create($request->all());
+    Page::create($request->all());
 
-flash(\'Page saved successfully.\', \'success\');
+    flash(\'Page saved successfully.\', \'success\');
 
-return redirect(route(\'admin.pages.index\'));
+    return redirect(route(\'admin.pages.index\'));
 }
 ```
 

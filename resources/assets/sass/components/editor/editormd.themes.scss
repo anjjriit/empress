@@ -1,0 +1,28 @@
+/* Editor.md Dark theme */
+
+#{$prefix}theme-dark {
+    border-color: #263238;
+
+    #{$prefix}toolbar {
+        background: #263238;
+        border-color: #263238;
+    }
+
+    #{$prefix}menu > li > a {
+        color: #aaa;
+        border-color: #263238;
+
+        &:hover, &.active {
+            border-color: rgba(38, 50, 56, 0.5);
+            background: rgba(38, 50, 56, 0.8);
+        }
+    }
+
+    #{$prefix}menu > li.divider {
+        border-right: 1px solid #aaa;
+    }
+    
+    .CodeMirror {
+        border-right: 1px solid rgba(0,0,0,0.1);
+    }
+}

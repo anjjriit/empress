@@ -176,6 +176,58 @@ Validators = {
 	            roles: 'Please select at least one role.'
 	        }
 	    });
+    },
+    settings: function(form) {
+    	$('#settings-edit').validate({
+	        rules: {
+	            username: 'required',
+	            name: 'required',
+	            email: {
+	                required: true,
+	                email: true,
+	                maxlength: 180
+	            }
+	        },
+	        messages: {
+	            username: 'Please enter a username.',
+	            name: 'Please enter a name.',
+	            email: {
+	                required: 'Please enter an email address.',
+	                email: 'Must be a valid email address.',
+	                maxlength: 'Max length for an email is 180 characters.'
+	            }
+	        }
+	    });
+    },
+    password_change: function() {
+    	$('#password-edit').validate({
+    		rules: {
+    			password: {
+	                required: true
+	            },
+	            new_password: {
+	            	required: true,
+	                minlength: 6
+	            },
+	            new_password_confirmation: {
+	                required: true,
+	                equalTo: '#new_password'
+	            }
+    		},
+    		messages: {
+    			password: {
+	                required: 'Please enter your current password.'
+	            },
+	            new_password: {
+	            	required: 'Please create a new password.',
+	                minlength: 'Password must be at least 6 characters.'
+	            },
+	            new_password_confirmation: {
+	                required: 'Please confirm your new password.',
+	                equalTo: 'Your passwords must match.'
+	            }
+    		}
+    	});
     }
 }
 
