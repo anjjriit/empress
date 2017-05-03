@@ -10,6 +10,7 @@
     </div>
 
     <div class="input-field col s12">
-        <editor input="{{ $page->content ?? null }}" name="{{ trans('admin/pages.form.content') }}"></editor>
+        {!! Form::textarea('content', null, ['id' => 'editor', 'class' => 'materialize-textarea', 'aria-required' => 'true', 'required', 'autofocus']) !!}
+        {!! Form::label('content', trans('admin/pages.form.content'), ['for' => 'content', 'class' => 'active']) !!}
     </div>
 </div>

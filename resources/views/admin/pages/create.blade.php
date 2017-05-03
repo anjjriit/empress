@@ -24,12 +24,7 @@
 @endsection
 
 @section('scripts')
-<link href="{{ asset(mix('/css/editor.css')) }}" rel="stylesheet" type="text/css">
-<script src="{{ asset('editor/editormd.js') }}"></script>
 <script>
     Validators.page($('#page-create'));
-
-    var editor = editormd('editor');
-
 </script>
 @endsection

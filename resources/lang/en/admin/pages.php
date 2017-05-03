@@ -21,7 +21,7 @@ return [
 	'form' => [
 		'title'   => 'Title',
 		'slug'    => 'Slug',
-		'content' => 'Content ( use Markdown for page content )'
+		'content' => 'Content'
 	],
 	'not-found' => 'No Pages found.',
 	'action'    => 'Page :type successfully.'

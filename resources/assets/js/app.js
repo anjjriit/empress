@@ -35,9 +35,11 @@ require('./bootstrap');
 
 import Example from './components/Example';
 import Welcome from './components/Welcome';
+import Editor from './components/Editor';
 
 Vue.component('example', Example);
 Vue.component('welcome', Welcome);
+Vue.component('editor', Editor);
 
 const app = new Vue({
     el: '#app'
@@ -67,13 +69,6 @@ const app = new Vue({
 
         Materialize.updateTextFields();
         
-        // Meltdown markdown editor
-        //$('textarea.editor').meltdown();
-
-        // $('.meltdown_preview pre code').each(function(i, block) {
-        //     hljs.highlightBlock(block);
-        // });
-
         $(document).on('click', 'a.disabled', function(e) {
             e.preventDefault();
         });

@@ -2,7 +2,7 @@
 	<div id="editor">
 		<textarea 
 			class="col s6 grey lighten-3" 
-			:name="this.name" 
+			:name="this.name.toLowerCase()" 
 			:value="this.output" 
 			@input="update" 
 			rows="4">
@@ -15,7 +15,8 @@
 <script>
 
 import lodash from 'lodash';
-import marked from 'marked';
+import showdown from 'showdown';
+import codehighlight from '../plugins/codehighlight';
 
 export default {
 
@@ -38,7 +39,9 @@ export default {
 
 	computed: {
 		compiledMarkdown: function () {
-			return marked(this.output, { sanitize: true })
+			var converter = new showdown.Converter({ extensions: ['codehighlight']});
+			
+			return converter.makeHtml(this.output);
 		}
 	},
 

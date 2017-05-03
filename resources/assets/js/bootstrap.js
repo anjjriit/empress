@@ -21,13 +21,6 @@ window.Notifier = require('./plugins/Notifier');
 
 window.Validators = require('./plugins/Validators');
 
-//window.editormd = require('./editor/editormd');
-
-//window.hljs = require('highlight.js');
-
-//require('./plugins/rangyinputs-jquery.min.js');
-//require('./plugins/jquery.meltdown.js');
-
 /*
 |--------------------------------------------------------------------------
 | Set Up Echo for Broadcasting

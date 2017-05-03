@@ -318,6 +318,9 @@ plugins.push(
             context: __dirname,
             output: { path: './' }
         }
+    }),
+    new webpack.DefinePlugin({
+      'require.specified': 'require.resolve'
     })
 );
 

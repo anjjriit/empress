@@ -9,13 +9,14 @@
   "devDependencies": {
     "axios": "^0.15.2",
     "cross-env": "^3.2.3",
-    "highlight.js": "^9.9.0",
+    "highlight.js": "^9.11.0",
     "jquery": "2.2.4",
     "jquery-validation": "^1.16.0",
     "laravel-mix": "^0.9.0",
     "lodash": "^4.16.2",
     "materialize-css": "^0.98.0",
     "materialize-notify": "^1.0.0",
+    "showdown": "^1.6.4",
     "vue": "2.2.6",
     "vue-template-compiler": "2.2.6"
   }
