@@ -34,6 +34,7 @@
                         &copy; {{ date('Y') }}. {{ config('app.company') }} All Rights Reserved.
                         <div class="grey-text text-lighten-4 love">
                             Made with <i class="material-icons red-text">favorite_border</i> in Tempe, AZ.
+                            &nbsp; v{{ config('app.version') }}
                         </div>
                     </div>
                 </div>
