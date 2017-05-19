@@ -42,7 +42,7 @@ class RoleController extends Controller
     public function create()
     {
         bcs([
-            trans('admin/roles.title') => 'admin.roles.index',
+            trans('admin/roles.title') => route('admin.roles.index'),
             trans('admin/roles.add') => null
         ]);
 
@@ -73,7 +73,7 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         bcs([
-            trans('admin/roles.title') => 'admin.roles.index',
+            trans('admin/roles.title') => route('admin.roles.index'),
             trans('admin/roles.edit', ['name' => $role->display_name]) => null
         ]);
 

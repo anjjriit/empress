@@ -43,7 +43,7 @@ class PermissionController extends Controller
     public function create(Role $role)
     {
         bcs([
-            trans('admin/permissions.title') => 'admin.permissions.index',
+            trans('admin/permissions.title') => route('admin.permissions.index'),
             trans('admin/permissions.add') => null
         ]);
 
@@ -79,7 +79,7 @@ class PermissionController extends Controller
     public function edit(Permission $permission, Role $role)
     {
         bcs([
-            trans('admin/permissions.title') => 'admin.permissions.index',
+            trans('admin/permissions.title') => route('admin.permissions.index'),
             trans('admin/permissions.edit', ['name' => $permission->display_name]) => null
         ]);
 

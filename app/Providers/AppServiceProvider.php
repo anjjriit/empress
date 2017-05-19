@@ -12,6 +12,7 @@
 
 namespace Empress\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Set the default column length for utf8mb4
+        Schema::defaultStringLength(191);
     }
 
     /**

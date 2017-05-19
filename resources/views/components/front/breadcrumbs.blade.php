@@ -4,7 +4,7 @@
 	@if($breadcrumb['route'] == 'last')
 	<span class="breadcrumb">{{ $breadcrumb['text'] }}</span>
 	@else
-	<a href="{{ route($breadcrumb['route']) }}" class="breadcrumb">{{ $breadcrumb['text'] }}</a>
+	<a href="{{ $breadcrumb['route'] }}" class="breadcrumb">{{ $breadcrumb['text'] }}</a>
 	@endif
 	@endforeach
 </div>

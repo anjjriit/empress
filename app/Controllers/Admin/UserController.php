@@ -44,7 +44,7 @@ class UserController extends Controller
     public function create(Role $role)
     {
         bcs([
-            trans('admin/users.title') => 'admin.users.index',
+            trans('admin/users.title') => route('admin.users.index'),
             trans('admin/users.add') => null
         ]);
 
@@ -87,7 +87,7 @@ class UserController extends Controller
     public function edit(User $user, Role $role)
     {
         bcs([
-            trans('admin/users.title') => 'admin.users.index',
+            trans('admin/users.title') => route('admin.users.index'),
             trans('admin/users.edit', ['name' => $user->name]) => null
         ]);
 

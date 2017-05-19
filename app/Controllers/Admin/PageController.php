@@ -42,7 +42,7 @@ class PageController extends Controller
     public function create()
     {
         bcs([
-            trans('admin/pages.title') => 'admin.pages.index',
+            trans('admin/pages.title') => route('admin.pages.index'),
             trans('admin/pages.add') => null
         ]);
 
@@ -73,7 +73,7 @@ class PageController extends Controller
     public function edit(Page $page)
     {
         bcs([
-            trans('admin/pages.title') => 'admin.pages.index',
+            trans('admin/pages.title') => route('admin.pages.index'),
             trans('admin/pages.edit', ['name' => $page->title]) => null
         ]);
         
