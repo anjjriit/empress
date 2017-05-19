@@ -4,7 +4,7 @@
  * database/migrations/2014_10_12_100000_create_password_resets_table.php
  *
  * @author Vince Kronlein <vince@19peaches.com>
- * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @license https://github.com/periaptio/empress/blob/master/LICENSE
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 

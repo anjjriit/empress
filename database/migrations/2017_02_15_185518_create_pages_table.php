@@ -4,7 +4,7 @@
  * database/migrations/2017_02_15_185518_create_pages_table.php
  *
  * @author Vince Kronlein <vince@19peaches.com>
- * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @license https://github.com/periaptio/empress/blob/master/LICENSE
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 

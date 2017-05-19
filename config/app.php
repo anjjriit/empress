@@ -6,7 +6,7 @@
  * Application configuration.
  *
  * @author Vince Kronlein <vince@19peaches.com>
- * @license https://github.com/19peaches/empress/blob/master/LICENSE
+ * @license https://github.com/periaptio/empress/blob/master/LICENSE
  * @copyright Periapt, LLC. All Rights Reserved.
  */
 
@@ -26,7 +26,7 @@ return [
     'company' => 'Periapt, LLC.',
 
     // Version (should be updated for each tag released)
-    'version' => '1.1.4',
+    'version' => '1.1.5',
 
     /*
     |--------------------------------------------------------------------------
