@@ -53,6 +53,21 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
+| Version Concrete
+|--------------------------------------------------------------------------
+|
+| Next we'll add in our version concrete to the container. This allows us
+| to ensure that users are running the current version of Empress and
+| we can notify them in the admin are if they need to upgrade.
+|
+*/
+
+$app->singleton('version', function ($app) {
+    return $app->make('Empress\Services\Version');
+});
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

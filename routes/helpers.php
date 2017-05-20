@@ -52,11 +52,31 @@ if (! function_exists('bcs'))
 
 if (! function_exists('parsedown'))
 {
-
+	/**
+	 * Convert the markdown content to html.
+	 * 
+	 * @param  string $content
+	 * @return string
+	 */
 	function parsedown($content)
 	{
 		$parse = new Parsedown();
 
 		return $parse->text($content);
+	}
+}
+
+if (! function_exists('version'))
+{
+	/**
+	 * Get the current latest version of the app from GitHub.
+	 * 
+	 * @return string
+	 */
+	function version()
+	{
+		$version = app('version')->fetch();
+
+		return $version->name();
 	}
 }

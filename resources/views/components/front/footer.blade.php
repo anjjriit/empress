@@ -3,7 +3,7 @@
                         &copy; {{ date('Y') }}, {{ config('app.company') }} {!! trans('front/footer.copyright') !!}
 						<div class="light-green-text text-darken-3 love">
 							 {!! trans('front/footer.tagline') !!}
-							 &nbsp; v{{ config('app.version') }}
+							 &nbsp; {{ config('app.version') }}
 						</div>
 					</div>
 				</div>
