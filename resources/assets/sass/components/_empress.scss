@@ -40,6 +40,14 @@ main nav {
         }
     }
 }
+hr {
+    background-color: rgba(0,0,0,0.1);
+    height: 1px;
+    display: block;
+    border: none;
+    margin: 10px 0 20px 0;
+    box-sizing: inherit !important;
+}
 input[type=button],
 input[type=submit] {
    outline:none;

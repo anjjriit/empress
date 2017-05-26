@@ -26,7 +26,7 @@ return [
     'company' => 'Periapt, LLC.',
 
     // Version (should be updated for each tag released)
-    'version' => 'v1.1.6',
+    'version' => 'v1.1.7',
 
     /*
     |--------------------------------------------------------------------------

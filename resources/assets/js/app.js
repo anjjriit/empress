@@ -67,10 +67,28 @@ const app = new Vue({
         // Other modals.
         window.Modal = $('.modal').modal();
 
+        window.Dialog = $('.dialog').dialog();
+
         Materialize.updateTextFields();
         
         $(document).on('click', 'a.disabled', function(e) {
             e.preventDefault();
+        });
+
+        // delete dialogs for links
+        $(document).on('click', '.delete', function (e) {
+            e.preventDefault();
+
+            var url = $(this).attr('href');
+            
+            var confirm = $('#confirm-dialog').dialog({
+                confirm: function () {
+                    location = url;
+                }
+            });
+
+            confirm.dialog('open');
+            
         });
     });
 })(jQuery);

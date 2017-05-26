@@ -28,7 +28,7 @@
                                     <a href="{{ route('admin.roles.edit', ['role' => $role->id]) }}" class="green-text text-lighten-1{{ ! auth()->user()->can('edit_roles') ? ' disabled' : ''}}" title="{{ trans('common.edit') }}">
                                         <i class="material-icons">create</i>
                                     </a>
-                                    <a href="{{ route('admin.roles.destroy', ['role' => $role->id]) }}" class="red-text text-lighten-2{{ ! auth()->user()->can('delete_roles') ? ' disabled' : ''}}" title="{{ trans('common.delete') }}">
+                                    <a href="{{ route('admin.roles.destroy', ['role' => $role->id]) }}" class="delete red-text text-lighten-2{{ ! auth()->user()->can('delete_roles') ? ' disabled' : ''}}" title="{{ trans('common.delete') }}">
                                        <i class="material-icons">delete</i> 
                                     </a>
                                 </td>
@@ -47,4 +47,7 @@
         </div>
     </div>
 </div>
+@include('admin.common.confirm', [
+    'body' => trans('common.destroy', ['type' => 'role'])
+])
 @endsection

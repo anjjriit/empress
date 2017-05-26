@@ -30,7 +30,7 @@
                                     <a href="{{ route('admin.users.edit', ['user' => $user->id]) }}" class="green-text text-lighten-1{{ ! auth()->user()->can('edit_users') ? ' disabled' : '' }}" title="{{ trans('common.edit') }}">
                                         <i class="material-icons">create</i>
                                     </a>
-                                    <a href="{{ route('admin.users.destroy', ['user' => $user->id]) }}" class="red-text text-lighten-2 {{ ! auth()->user()->can('delete_users') ? ' disabled' : '' }}" title="{{ trans('common.delete') }}">
+                                    <a href="{{ route('admin.users.destroy', ['user' => $user->id]) }}" class="delete red-text text-lighten-2 {{ ! auth()->user()->can('delete_users') ? ' disabled' : '' }}" title="{{ trans('common.delete') }}">
                                        <i class="material-icons">delete</i> 
                                     </a>
                                 </td>
@@ -49,4 +49,7 @@
         </div>
     </div>
 </div>
+@include('admin.common.confirm', [
+    'body' => trans('common.destroy', ['type' => 'user'])
+])
 @endsection

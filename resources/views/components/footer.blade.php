@@ -23,7 +23,7 @@
                                     <a class="grey-text text-lighten-3" href="http://materializecss.com" target="_blank">Materialize</a>
                                 </li>
                                 <li>
-                                    <a class="grey-text text-lighten-3" href="https://reso.lution.io/periapt/empress" target="_blank">Empress (Git)</a>
+                                    <a class="grey-text text-lighten-3" href="https://github.com/periaptio/empress" target="_blank">Github</a>
                                 </li>
                             </ul>
                         </div>

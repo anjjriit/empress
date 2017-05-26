@@ -21,6 +21,8 @@ window.Notifier = require('./plugins/Notifier');
 
 window.Validators = require('./plugins/Validators');
 
+require('./plugins/Dialog');
+
 /*
 |--------------------------------------------------------------------------
 | Set Up Echo for Broadcasting
